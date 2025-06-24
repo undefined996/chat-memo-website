@@ -12,6 +12,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4C06BSVNL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C4C06BSVNL');
+        
+        // 按钮点击追踪函数
+        function trackButtonClick(buttonName, buttonType, destination) {
+            gtag('event', 'click', {
+                'event_category': 'Button',
+                'event_label': buttonName,
+                'button_type': buttonType,
+                'destination': destination
+            });
+        }
+        
+        // 页面加载完成后添加点击事件监听
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为所有链接添加点击追踪
+            const links = document.querySelectorAll('a');
+            links.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    const href = this.getAttribute('href');
+                    const text = this.textContent.trim();
+                    
+                    if (href && href.startsWith('http')) {
+                        // 外部链接
+                        trackButtonClick(text, 'external_link', href);
+                    } else if (href && href.startsWith('#')) {
+                        // 内部锚点链接
+                        trackButtonClick(text, 'internal_link', href);
+                    }
+                });
+            });
+        });
+    </script>
+    
     <style>
         body {
             font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
