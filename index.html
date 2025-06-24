@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Memo - 别让灵感，随聊天窗口一同关闭</title>
+    <meta name="description" content="Chat Memo: 将你在各大平台的零散对话，聚合为你的统一、私密、可随时检索的个人知识库。">
+    <link rel="icon" type="image/png" href="resource/icons/logo.png">
+    <link rel="shortcut icon" type="image/png" href="resource/icons/logo.png">
+    <link rel="apple-touch-icon" href="resource/icons/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="resource/icons/logo.png" alt="Chat Memo Logo" class="h-8 w-8">
+                <span class="text-xl font-bold text-gray-900">Chat Memo</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-gray-900 transition">核心功能</a>
+                <a href="#vision" class="text-gray-600 hover:text-gray-900 transition">愿景</a>
+                <a href="#faq" class="text-gray-600 hover:text-gray-900 transition">常见问题</a>
+            </nav>
+            <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="hidden md:inline-block bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition text-sm">
+                免费添加至 Chrome
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="pt-40 pb-24 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                    别让灵感，<br>随聊天窗口一同关闭
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+                    Chat Memo 将你在 ChatGPT、DeepSeek、Gemini 等平台的零散对话，聚合为你的统一、私密、可随时检索的个人智慧资产。
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-2">
+                    <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition inline-flex items-center gap-2 shadow-lg hover:shadow-blue-500/30">
+                        <img src="resource/icons/chrome_icon.png" alt="Chrome" class="w-5 h-5">
+                        免费添加至 Chrome
+                    </a>
+                    <a href="https://zkv549gmz8.feishu.cn/share/base/form/shrcnQRBNhLNtVBWSClmb9EKNyd" target="_blank" class="border-2 border-gray-800 hover:bg-gray-800 text-gray-800 hover:text-white font-bold py-3 px-6 rounded-lg text-lg transition inline-block">
+                        我有建议
+                    </a>
+                </div>
+                <p class="text-sm text-gray-500 mt-4">已有 200+ AI 时代的新工作者正在使用 🚀</p>
+
+                <div class="mt-16 max-w-4xl mx-auto border border-gray-200 rounded-xl shadow-2xl shadow-gray-200/50 p-2">
+                    <video 
+                        class="rounded-lg w-full h-auto" 
+                        autoplay 
+                        muted 
+                        loop 
+                        playsinline 
+                        poster="resource/images/video_cover.jpg"
+                        preload="metadata"
+                    >
+                        <source src="resource/videos/video.mp4" type="video/mp4">
+                        <img src="resource/images/video_cover.jpg" alt="Chat Memo 核心功能演示" class="rounded-lg">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-24 bg-gray-50/70">
+            <div class="container mx-auto px-6 space-y-24">
+
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                    <div class="md:w-1/2">
+                        <div class="bg-white p-2 border border-gray-200 rounded-xl shadow-lg">
+                           <img src="resource/images/frame_1.png" alt="所有对话，一处管理" class="rounded-lg">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <span class="text-2xl">✨</span>
+                        <h3 class="text-3xl font-bold text-gray-900 mt-2">所有对话，一处管理</h3>
+                        <p class="text-lg text-gray-600 mt-4 leading-relaxed">自动支持 ChatGPT, Gemini, DeepSeek 等主流 AI 平台，告别在不同标签页之间反复横跳的烦恼，将所有智慧统一归档。</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                    <div class="md:w-1/2 md:order-last">
+                        <div class="bg-white p-2 border border-gray-200 rounded-xl shadow-lg">
+                           <video 
+                               class="rounded-lg w-full h-auto" 
+                               autoplay 
+                               muted 
+                               loop 
+                               playsinline 
+                               poster="resource/images/frame_2_cover.jpg"
+                               preload="metadata"
+                           >
+                               <source src="resource/videos/frame_2_demo.mp4" type="video/mp4">
+                               <img src="resource/images/frame_2_cover.jpg" alt="无感同步，专注对话" class="rounded-lg">
+                           </video>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <span class="text-2xl">🪄</span>
+                        <h3 class="text-3xl font-bold text-gray-900 mt-2">无感同步，实时更新</h3>
+                        <p class="text-lg text-gray-600 mt-4 leading-relaxed">在你专注于与 AI 对话、思考时，Chat Memo 在后台静默工作，自动增量保存，不错过每一句新内容。</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                    <div class="md:w-1/2">
+                        <div class="bg-white p-2 border border-gray-200 rounded-xl shadow-lg">
+                           <video 
+                               class="rounded-lg w-full h-auto" 
+                               autoplay 
+                               muted 
+                               loop 
+                               playsinline 
+                               poster="resource/images/frame_3_cover.jpg"
+                               preload="metadata"
+                           >
+                               <source src="resource/videos/frame_3_demo.mp4" type="video/mp4">
+                               <img src="resource/images/frame_3_cover.jpg" alt="一个属于你大脑的搜索框" class="rounded-lg">
+                           </video>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <span class="text-2xl">🧠</span>
+                        <h3 class="text-3xl font-bold text-gray-900 mt-2">一个属于你大脑的搜索框</h3>
+                        <p class="text-lg text-gray-600 mt-4 leading-relaxed">
+                            那个绝妙的解决方案，那段关键的讨论，不必再费力回忆。一个关键词，就能让沉睡在所有对话中的智慧，瞬间重现。
+                        </p>
+                
+                        <div class="mt-6 border-t border-dashed border-gray-200 pt-4">
+                            <p class="text-sm text-gray-500 italic">
+                                <span class="font-semibold not-italic">🪄 P.S.</span> 不止 AI 搜索、问答。我们正在探索如何让 Chat Memo 理解你的“意图”，并为你主动回忆。敬请期待！
+                            </p>
+                        </div>
+                        </div>
+                </div>
+                
+                 <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                    <div class="md:w-1/2 md:order-last">
+                        <div class="bg-white p-2 border border-gray-200 rounded-xl shadow-lg">
+                           <img src="resource/images/frame_4.png" alt="隐私为先，本地存储" class="rounded-lg">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <span class="text-2xl">🔒</span>
+                        <h3 class="text-3xl font-bold text-gray-900 mt-2">隐私为先，本地存储</h3>
+                        <p class="text-lg text-gray-600 mt-4 leading-relaxed">你的数据，只属于你。所有对话 100% 存储在你的本地设备，我们不会访问或共享你的数据，赋予你对个人智慧资产绝对的控制权。</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="vision" class="py-24">
+            <div class="container mx-auto px-6 max-w-4xl">
+                 <div class="text-center mb-12">
+                    <h2 class="text-xl font-semibold text-blue-600">一封来自开发者的信</h2>
+                    <p class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">这不只是一个工具，更是一个开始</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-8 md:p-12 border border-gray-200 flex flex-col md:flex-row items-center gap-12">
+                    <div class="flex-shrink-0 text-center">
+                        <img src="resource/images/avatar.jpg" alt="一泽Eze" class="rounded-full h-40 w-40 mx-auto ring-4 ring-white shadow-md">
+                        <h4 class="font-bold text-lg mt-4 text-gray-900">一泽Eze</h4>
+                        <p class="text-gray-500">开发者</p>
+                    </div>
+                    <div class="md:border-l md:border-gray-200 md:pl-12 mt-8 md:mt-0">
+                        <p class="text-gray-600 mb-4 text-lg leading-relaxed">你好，我是一泽Eze，来自中国的 AI 博主和重度 AI 使用者，每天都与 AI 对话 8 小时以上。我深知 AI 对话中迸发的灵感火花有多么珍贵，也体会过它们因零散在各平台中，管理不善而流失的痛苦。于是，我为自己，也为和我有同样困扰的朋友们，开发了 Chat Memo。</p>
+                        <p class="text-gray-600 text-lg leading-relaxed">Chat Memo 的终极目标，是帮助每个人打造“AI 记忆中枢”，将我们与 AI 的互动，真正沉淀为可积累的个人智慧。期待你加入与 AI 共同进步的旅程。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-24 bg-gray-50/70">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">还有疑问？</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900">我的数据安全吗？</h3>
+                        <p class="text-gray-600 mt-2">绝对安全。所有数据都存储在您的本地浏览器中，我们绝不触碰、上传或分析您的任何对话内容。您的数据只属于您。</p>
+                    </div>
+                    <hr class="border-gray-200">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Chat Memo 是免费的吗？</h3>
+                        <p class="text-gray-600 mt-2">是的，核心本地功能永久免费。我们未来会为有更高需求的用户，提供如云端加密同步、团队协作等需要服务器成本的付费增值服务。</p>
+                    </div>
+                    <hr class="border-gray-200">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900">未来会支持哪些新平台？</h3>
+                        <p class="text-gray-600 mt-2">Claude、文心一言、Kimi 等都在我们的开发计划中。我们会优先开发社区用户呼声最高的平台，欢迎加入我们的社区为你喜爱的平台投票。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="py-24 text-center">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">开始沉淀你的 AI 智慧资产</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">立即加入我们的社区，成为产品的“共建者”，第一时间获取更新，并直接影响 Chat Memo 的未来！</p>
+                <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-4 px-10 rounded-lg text-xl transition inline-block transform hover:scale-105">
+                    免费添加至 Chrome
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p>&copy; 2025 Chat Memo by 一泽Eze. All rights reserved.</p>
+            <p class="text-sm mt-2">一个由社区驱动的 AI 记忆工具</p>
+        </div>
+    </footer>
+
+
+
+
+
+</body>
+</html>
