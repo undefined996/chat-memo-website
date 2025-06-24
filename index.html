@@ -23,13 +23,29 @@
         // 按钮点击追踪函数
         function trackButtonClick(buttonName, buttonType, destination) {
             console.log('发送事件:', buttonName, buttonType, destination); // 调试日志
-            gtag('event', 'button_click', {
-                'event_category': 'engagement',
+            
+            // 根据按钮内容确定具体的事件名称
+            let eventName = 'button_click';
+            let eventCategory = 'engagement';
+            
+            if (buttonName.includes('添加至 Chrome') || buttonName.includes('添加至Chrome')) {
+                eventName = 'add_to_chrome';
+                eventCategory = 'conversion';
+            } else if (buttonName.includes('我有建议')) {
+                eventName = 'feedback_click';
+                eventCategory = 'engagement';
+            } else if (buttonName.includes('核心功能') || buttonName.includes('愿景') || buttonName.includes('常见问题')) {
+                eventName = 'navigation_click';
+                eventCategory = 'navigation';
+            }
+            
+            gtag('event', eventName, {
+                'event_category': eventCategory,
                 'event_label': buttonName,
                 'button_type': buttonType,
                 'destination': destination,
-                'custom_parameter_1': buttonType,
-                'custom_parameter_2': buttonName
+                'button_text': buttonName,
+                'link_url': destination
             });
         }
         
