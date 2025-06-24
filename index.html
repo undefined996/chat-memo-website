@@ -22,22 +22,31 @@
         
         // 按钮点击追踪函数
         function trackButtonClick(buttonName, buttonType, destination) {
-            gtag('event', 'click', {
-                'event_category': 'Button',
+            console.log('发送事件:', buttonName, buttonType, destination); // 调试日志
+            gtag('event', 'button_click', {
+                'event_category': 'engagement',
                 'event_label': buttonName,
                 'button_type': buttonType,
-                'destination': destination
+                'destination': destination,
+                'custom_parameter_1': buttonType,
+                'custom_parameter_2': buttonName
             });
         }
         
         // 页面加载完成后添加点击事件监听
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('开始添加事件监听器'); // 调试日志
+            
             // 为所有链接添加点击追踪
             const links = document.querySelectorAll('a');
-            links.forEach(function(link) {
-                link.addEventListener('click', function() {
+            console.log('找到链接数量:', links.length); // 调试日志
+            
+            links.forEach(function(link, index) {
+                link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
                     const text = this.textContent.trim();
+                    
+                    console.log('链接被点击:', text, href); // 调试日志
                     
                     if (href && href.startsWith('http')) {
                         // 外部链接
@@ -45,6 +54,9 @@
                     } else if (href && href.startsWith('#')) {
                         // 内部锚点链接
                         trackButtonClick(text, 'internal_link', href);
+                    } else {
+                        // 其他类型链接
+                        trackButtonClick(text, 'other_link', href || 'no_href');
                     }
                 });
             });
