@@ -53,6 +53,39 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('开始添加事件监听器'); // 调试日志
             
+            // 移动端菜单控制
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // 更新按钮图标
+                    const svg = mobileMenuButton.querySelector('svg');
+                    const path = svg.querySelector('path');
+                    
+                    if (mobileMenu.classList.contains('hidden')) {
+                        // 显示汉堡菜单图标
+                        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                    } else {
+                        // 显示关闭图标
+                        path.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                    }
+                });
+                
+                // 点击导航链接后关闭移动端菜单
+                const mobileNavLinks = mobileMenu.querySelectorAll('a[href^="#"]');
+                mobileNavLinks.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                        const svg = mobileMenuButton.querySelector('svg');
+                        const path = svg.querySelector('path');
+                        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                    });
+                });
+            }
+            
             // 为所有链接添加点击追踪
             const links = document.querySelectorAll('a');
             console.log('找到链接数量:', links.length); // 调试日志
@@ -88,19 +121,39 @@
 <body class="bg-white text-gray-800 antialiased">
 
     <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="resource/icons/logo.png" alt="Chat Memo Logo" class="h-8 w-8">
-                <span class="text-xl font-bold text-gray-900">Chat Memo</span>
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <img src="resource/icons/logo.png" alt="Chat Memo Logo" class="h-8 w-8">
+                    <span class="text-xl font-bold text-gray-900">Chat Memo</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]">核心功能</a>
+                    <a href="#vision" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]">愿景</a>
+                    <a href="#faq" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]">常见问题</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="hidden md:flex items-center justify-center bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition text-sm min-h-[40px]">
+                        <span class="text-center">免费添加至 Chrome</span>
+                    </a>
+                    <button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 transition">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#features" class="text-gray-600 hover:text-gray-900 transition">核心功能</a>
-                <a href="#vision" class="text-gray-600 hover:text-gray-900 transition">愿景</a>
-                <a href="#faq" class="text-gray-600 hover:text-gray-900 transition">常见问题</a>
-            </nav>
-            <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="hidden md:inline-block bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition text-sm">
-                免费添加至 Chrome
-            </a>
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200">
+                <nav class="flex flex-col space-y-3 pt-4">
+                    <a href="#features" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]">核心功能</a>
+                    <a href="#vision" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]">愿景</a>
+                    <a href="#faq" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]">常见问题</a>
+                    <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="bg-gray-900 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-lg transition flex items-center justify-center min-h-[48px] mt-2">
+                        <span class="text-center">免费添加至 Chrome</span>
+                    </a>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -113,13 +166,13 @@
                 <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
                     Chat Memo 将你在 ChatGPT、DeepSeek、Gemini 等平台的零散对话，聚合为你的统一、私密、可随时检索的个人智慧资产。
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-2">
-                    <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition inline-flex items-center gap-2 shadow-lg hover:shadow-blue-500/30">
-                        <img src="resource/icons/chrome_icon.png" alt="Chrome" class="w-5 h-5">
-                        免费添加至 Chrome
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-2 max-w-md sm:max-w-none mx-auto">
+                    <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition flex items-center justify-center gap-2 shadow-lg hover:shadow-blue-500/30 min-h-[52px]">
+                        <img src="resource/icons/chrome_icon.png" alt="Chrome" class="w-5 h-5 flex-shrink-0">
+                        <span class="text-center">免费添加至 Chrome</span>
                     </a>
-                    <a href="https://zkv549gmz8.feishu.cn/share/base/form/shrcnQRBNhLNtVBWSClmb9EKNyd" target="_blank" class="border-2 border-gray-800 hover:bg-gray-800 text-gray-800 hover:text-white font-bold py-3 px-6 rounded-lg text-lg transition inline-block">
-                        我有建议
+                    <a href="https://zkv549gmz8.feishu.cn/share/base/form/shrcnQRBNhLNtVBWSClmb9EKNyd" target="_blank" class="w-full sm:w-auto border-2 border-gray-800 hover:bg-gray-800 text-gray-800 hover:text-white font-bold py-3 px-6 rounded-lg text-lg transition flex items-center justify-center min-h-[52px]">
+                        <span class="text-center">我有建议</span>
                     </a>
                 </div>
                 <p class="text-sm text-gray-500 mt-4">已有 200+ AI 时代的新工作者正在使用 🚀</p>
@@ -275,8 +328,8 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">开始沉淀你的 AI 智慧资产</h2>
                 <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">立即加入我们的社区，成为产品的“共建者”，第一时间获取更新，并直接影响 Chat Memo 的未来！</p>
-                <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-4 px-10 rounded-lg text-xl transition inline-block transform hover:scale-105">
-                    免费添加至 Chrome
+                <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-4 px-10 rounded-lg text-xl transition flex items-center justify-center transform hover:scale-105 max-w-xs mx-auto min-h-[60px]">
+                    <span class="text-center">免费添加至 Chrome</span>
                 </a>
             </div>
         </section>
