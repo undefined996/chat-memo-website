@@ -199,7 +199,7 @@
             } else if (buttonName.includes('我有建议')) {
                 eventName = 'feedback_click';
                 eventCategory = 'engagement';
-            } else if (buttonName.includes('核心功能') || buttonName.includes('愿景') || buttonName.includes('常见问题')) {
+            } else if (buttonName.includes('核心功能') || buttonName.includes('愿景') || buttonName.includes('灵感') || buttonName.includes('常见问题') || buttonName.includes('Core Features') || buttonName.includes('Vision') || buttonName.includes('Inspiration') || buttonName.includes('FAQ')) {
                 eventName = 'navigation_click';
                 eventCategory = 'navigation';
             }
@@ -220,6 +220,7 @@
                 // 导航
                 'nav-features': '核心功能',
                 'nav-vision': '愿景',
+                'nav-inspiration': '灵感',
                 'nav-faq': '常见问题',
                 'nav-chrome': '免费添加至 Chrome',
                 'nav-chrome-mobile': '免费添加至 Chrome',
@@ -254,7 +255,7 @@
                 'recipe1-btn': '查看"周报"配方 →',
                 'recipe2-title': '将零散想法，汇成主题洞察',
                 'recipe2-desc': '围绕一个项目或特定主题，将所有相关对话提炼成一份结构化的报告，清晰呈现核心论点、关键数据和那些容易被忽略的盲点。',
-                'recipe2-btn': '查看"提炼"配方 →',
+                'recipe2-btn': '查看"洞察"配方 →',
                 'recipe3-title': '让 AI 成为看见你自己的镜子',
                 'recipe3-desc': '这是一次有趣的自我探索。通过分析你独一无二的提问风格、关注点和解决问题的方式，AI 能为你提供一个崭新、有趣的自我认知视角。',
                 'recipe3-btn': '查看"探索"配方 →',
@@ -409,6 +410,7 @@
                 // 导航
                 'nav-features': 'Core Features',
                 'nav-vision': 'Vision',
+                'nav-inspiration': 'Inspiration',
                 'nav-faq': 'FAQ',
                 'nav-chrome': 'Add to Chrome for Free',
                 'nav-chrome-mobile': 'Add to Chrome for Free',
@@ -443,7 +445,7 @@
                 'recipe1-btn': 'View "Weekly Report" Recipe →',
                 'recipe2-title': 'Transform Scattered Ideas into Deep Insights',
                 'recipe2-desc': 'Around a project or specific topic, distill all related conversations into a structured report, clearly presenting core arguments, key data, and easily overlooked blind spots.',
-                'recipe2-btn': 'View "Distillation" Recipe →',
+                'recipe2-btn': 'View "Review" Recipe →',
                 'recipe3-title': 'Let AI Be the Mirror to See Yourself',
                 'recipe3-desc': 'This is an interesting journey of self-discovery. By analyzing your unique questioning style, focus areas, and problem-solving approaches, AI can provide you with a fresh and fascinating perspective on self-awareness.',
                 'recipe3-btn': 'View "Exploration" Recipe →',
@@ -818,6 +820,7 @@ Next, start writing the analysis content directly`,
                 </div>
                 <nav class="hidden md:flex space-x-8">
                     <a href="#features" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]" data-key="nav-features">核心功能</a>
+                    <a href="#value-discovery" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]" data-key="nav-inspiration">灵感</a>
                     <a href="#vision" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]" data-key="nav-vision">愿景</a>
                     <a href="#faq" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]" data-key="nav-faq">常见问题</a>
                 </nav>
@@ -840,6 +843,7 @@ Next, start writing the analysis content directly`,
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200">
                 <nav class="flex flex-col space-y-3 pt-4">
                     <a href="#features" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]" data-key="nav-features">核心功能</a>
+                    <a href="#value-discovery" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]" data-key="nav-inspiration">灵感</a>
                     <a href="#vision" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]" data-key="nav-vision">愿景</a>
                     <a href="#faq" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]" data-key="nav-faq">常见问题</a>
                     <!-- 移动端语言切换按钮 -->
