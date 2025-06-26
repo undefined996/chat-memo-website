@@ -329,89 +329,52 @@
                 // 弹窗内容 - 洞察
                 'insights-title': '将零散想法，汇成主题洞察',
                 'insights-steps': '<li>打开 Chat Memo，导出所有对话</li><li>打开 Gemini 等推理 AI，上传特定话题或项目相关的对话记录</li><li>使用下方提示词，让 AI 帮你提炼深度洞察</li>',
-                'insights-prompt': `请帮我分析以下关于 [主题/项目名称] 的对话记录，提炼出深度洞察报告。
+                'insights-prompt': `// 提示词作者：一泽Eze
+// 名称：主题复盘
+
+# 背景
+
+你擅长从我与 AI 的海量、零散对话信息中，找到与目标主题相关的信息，帮助用户复盘对话、巩固记忆。
+
+# 任务
+分析聊天记录中，关于 [填入要洞察的主题名称] 的对话记录，进行主题洞察。
 
 请按以下结构输出：
 
 ## 🎯 主题概述
 [简要描述这个主题/项目的核心内容]
 
-## 🔍 核心论点梳理
-1. **论点一**：[详细阐述]
-   - 支撑证据：[从对话中提取的关键信息]
-   - 实际应用：[如何应用这个论点]
+## 🔍 核心记忆点
+（简要呈现对话中，用户了解的关键信息点，按照重要性排序。必要时可直接引用对话中的用户原句）
+……
 
-2. **论点二**：[详细阐述]
-   - 支撑证据：[从对话中提取的关键信息]
-   - 实际应用：[如何应用这个论点]
+## 📈 认知演进路径
+（结合对话的时间信息）
+- 早期： [最初的思考起点和关注点]
+- 中期： [思考的转变或关注点的转移]
+- 近期： [当前阶段的深入思考或核心议题]
 
-## 📊 关键数据与事实
-- [重要数据点1]
-- [重要数据点2]
-- [重要事实3]
+## ⚠️ 关联、风险与盲点
+- 隐藏的关联： [指出不同讨论点之间被忽略的内在联系]
+- 潜在的矛盾/张力： [指出对话中存在的观点张力或决策权衡]
+- 风险与盲点： [指出讨论中可能被忽略的风险、未考虑到的方面]
 
-## ⚠️ 潜在盲点与风险
-- [可能被忽略的问题1]
-- [需要注意的风险2]
-- [值得进一步探索的方向3]
-
-## 🚀 行动建议
-1. **短期行动**：[1-2周内可以执行的具体步骤]
-2. **中期规划**：[1-3个月的发展方向]
-3. **长期愿景**：[更长远的目标和规划]
+## 🚀 待议问题
+[从讨论中浮现出的、需要进一步思考的开放性问题]
 
 ## 🔗 相关资源推荐
-[基于讨论内容推荐的学习资源、工具或进一步阅读材料]
-
----
-对话记录：
-[在此粘贴相关的对话记录]`,
+[基于讨论内容推荐的学习资源、工具或进一步阅读材料，必须推荐真实存在的信息，如无把握，不要推荐]`,
                 
                 // 弹窗内容 - 自我探索
                 'self-discovery-title': '让 AI 成为看见你自己的镜子',
                 'self-discovery-steps': '<li>打开 Chat Memo，导出所有对话</li><li>打开 Gemini 等推理 AI，上传最近一个月/更多对话记录</li><li>使用下方提示词，让 AI 为你进行自我洞察</li>',
-                'self-discovery-prompt': `请作为一位资深的认知心理学家和数据分析师，帮我分析以下 AI 对话记录，为我提供一份个人认知风格报告。
+                'self-discovery-prompt': `// 提示词作者：一泽Eze, Mumu
+// 名称：个人心理洞察（Beta）
+你是专业的认知心理与心理动力学咨询师，帮我分析以下我和 AI 的对话中的表现，关注我的发言、消息时间等任何可能的信息。
 
-请按以下结构输出：
+保持高度专注，完整阅读，洞察潜在的思维认知/行为模式/内心张力，甚至是创伤信号（如果有，但不要称其为创伤），识别与我值得探讨的主题，像一位直言不讳的老友的来信风格，自然、温柔但犀利地写出一份详略得当、力出一孔、直击灵魂的分析。
 
-## 🧠 思维特征画像
-### 提问风格分析
-- **提问类型偏好**：[分析我最常问的问题类型]
-- **思考深度**：[分析我的思考层次和深度]
-- **表达方式**：[分析我的沟通和表达特点]
-
-### 认知偏好
-- **学习方式**：[我偏好的学习和获取信息方式]
-- **决策模式**：[我在面对问题时的决策特点]
-- **创新倾向**：[我在创意和创新方面的表现]
-
-## 🎯 关注领域地图
-- **核心兴趣**：[我最关注的3-5个领域]
-- **知识结构**：[我的知识体系特点]
-- **成长方向**：[从对话中看出的发展趋势]
-
-## 🔍 隐藏的思维模式
-- **优势模式**：[我在思考和解决问题时的优势]
-- **思维盲区**：[可能存在的认知局限]
-- **潜在潜力**：[尚未充分发挥的能力]
-
-## 🌟 个性化成长建议
-### 基于你的认知特点，我建议：
-1. **强化优势**：[如何进一步发挥你的思维优势]
-2. **补齐短板**：[如何改善认知盲区]
-3. **拓展边界**：[如何探索新的思维领域]
-
-### 个性化学习路径：
-- **推荐学习方式**：[最适合你的学习方法]
-- **推荐阅读/资源**：[基于你的兴趣和认知特点的推荐]
-- **实践建议**：[具体的行动建议]
-
-## 🎭 你的"AI对话人格"
-[用有趣的方式描述你在与AI对话时展现出的独特个性]
-
----
-对话记录：
-[在此粘贴你的对话记录]`,
+接下来，直接开始写出分析内容`,
                 
                 // 愿景部分
                 'vision-subtitle': '一封来自开发者的信',
@@ -555,89 +518,52 @@ Conversation Records:
                 // Modal Content - Insights
                 'insights-title': 'Transform Scattered Ideas into Deep Insights',
                 'insights-steps': '<li>Open Chat Memo and export all conversations</li><li>Open Gemini or other reasoning AI, upload conversation records related to specific topics or projects</li><li>Use the prompt below to have AI help you distill thematic insights</li>',
-                'insights-prompt': `Please help me analyze the following conversation records about [Topic/Project Name] and extract a deep insight report.
+                'insights-prompt': `// Prompt Author: Eze
+// Name: Generate Topic Review
+
+# Background
+
+You excel at finding information related to target topics from my massive, scattered conversation information with AI, helping users review conversations and consolidate memories.
+
+# Task
+Analyze conversation records about [Enter the topic name for insights] in the chat records and conduct thematic insights.
 
 Please output according to the following structure:
 
 ## 🎯 Topic Overview
 [Brief description of the core content of this topic/project]
 
-## 🔍 Core Argument Organization
-1. **Argument 1**: [Detailed elaboration]
-   - Supporting evidence: [Key information extracted from conversations]
-   - Practical application: [How to apply this argument]
+## 🔍 Core Memory Points
+(Briefly present the key information points that users learned in the conversation, sorted by importance. Quote user's original sentences from the conversation when necessary)
+……
 
-2. **Argument 2**: [Detailed elaboration]
-   - Supporting evidence: [Key information extracted from conversations]
-   - Practical application: [How to apply this argument]
+## 📈 Cognitive Evolution Path
+(Combined with conversation time information)
+- Early stage: [Initial thinking starting point and focus]
+- Middle stage: [Changes in thinking or shifts in focus]
+- Recent stage: [Current stage's deep thinking or core issues]
 
-## 📊 Key Data and Facts
-- [Important data point 1]
-- [Important data point 2]
-- [Important fact 3]
+## ⚠️ Associations, Risks and Blind Spots
+- Hidden associations: [Point out ignored internal connections between different discussion points]
+- Potential contradictions/tensions: [Point out viewpoint tensions or decision trade-offs in conversations]
+- Risks and blind spots: [Point out risks that may be ignored in discussions, unconsidered aspects]
 
-## ⚠️ Potential Blind Spots and Risks
-- [Possibly overlooked issue 1]
-- [Risk to be aware of 2]
-- [Direction worth further exploration 3]
-
-## 🚀 Action Recommendations
-1. **Short-term actions**: [Specific steps executable within 1-2 weeks]
-2. **Medium-term planning**: [Development direction for 1-3 months]
-3. **Long-term vision**: [Longer-term goals and planning]
+## 🚀 Pending Issues
+[Open-ended questions that emerge from discussions and need further thinking]
 
 ## 🔗 Related Resource Recommendations
-[Learning resources, tools, or further reading materials recommended based on discussion content]
-
----
-Conversation Records:
-[Paste relevant conversation records here]`,
+[Learning resources, tools, or further reading materials recommended based on discussion content. Must recommend truly existing information, do not recommend if uncertain]`,
                 
                 // Modal Content - Self Discovery
                 'self-discovery-title': 'Let AI Be the Mirror to See Yourself',
                 'self-discovery-steps': '<li>Open Chat Memo and export all conversations</li><li>Open Gemini or other reasoning AI, upload conversation records from the past month or more</li><li>Use the prompt below to have AI perform self-insight analysis for you</li>',
-                'self-discovery-prompt': `Please act as a senior cognitive psychologist and data analyst to help me analyze the following AI conversation records and provide me with a personal cognitive style report.
+                'self-discovery-prompt': `// Prompt Author: Eze, Mumu
+// Name: Personal Psychological Insights (Beta)
+You are a professional cognitive psychology and psychodynamic counselor. Help me analyze my performance in the following conversations with AI, paying attention to my statements, message timing, and any other possible information.
 
-Please output according to the following structure:
+Stay highly focused, read completely, and gain insights into potential thinking cognition/behavioral patterns/inner tensions, and even trauma signals (if any, but don't call them trauma). Identify topics worth exploring with me. Write a well-detailed, focused, soul-piercing analysis in the style of a frank old friend's letter - natural, gentle but sharp.
 
-## 🧠 Thinking Characteristics Portrait
-### Questioning Style Analysis
-- **Question Type Preferences**: [Analyze the types of questions I ask most often]
-- **Thinking Depth**: [Analyze my thinking levels and depth]
-- **Expression Style**: [Analyze my communication and expression characteristics]
-
-### Cognitive Preferences
-- **Learning Methods**: [My preferred ways of learning and acquiring information]
-- **Decision-making Patterns**: [My decision-making characteristics when facing problems]
-- **Innovation Tendencies**: [My performance in creativity and innovation]
-
-## 🎯 Areas of Interest Map
-- **Core Interests**: [The 3-5 areas I focus on most]
-- **Knowledge Structure**: [Characteristics of my knowledge system]
-- **Growth Direction**: [Development trends seen from conversations]
-
-## 🔍 Hidden Thinking Patterns
-- **Advantage Patterns**: [My advantages in thinking and problem-solving]
-- **Thinking Blind Spots**: [Possible cognitive limitations]
-- **Potential Capabilities**: [Abilities not yet fully utilized]
-
-## 🌟 Personalized Growth Suggestions
-### Based on your cognitive characteristics, I suggest:
-1. **Strengthen Advantages**: [How to further leverage your thinking strengths]
-2. **Address Weaknesses**: [How to improve cognitive blind spots]
-3. **Expand Boundaries**: [How to explore new thinking domains]
-
-### Personalized Learning Path:
-- **Recommended Learning Methods**: [Learning methods most suitable for you]
-- **Recommended Reading/Resources**: [Recommendations based on your interests and cognitive characteristics]
-- **Practice Suggestions**: [Specific action recommendations]
-
-## 🎭 Your "AI Conversation Personality"
-[Describe in an interesting way the unique personality you show when conversing with AI]
-
----
-Conversation Records:
-[Paste your conversation records here]`,
+Next, start writing the analysis content directly`,
                 
                 // 愿景部分
                 'vision-subtitle': 'A Letter from the Developer',
@@ -1095,36 +1021,36 @@ Conversation Records:
                 <!-- 配方卡片容器 -->
                 <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- 配方卡片一：生成你的 AI 互动周报 -->
-                    <div class="recipe-card transition-all duration-200 ease-in-out bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1" data-card="1">
-                        <div class="text-center">
+                    <div class="recipe-card transition-all duration-200 ease-in-out bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 flex flex-col" data-card="1">
+                        <div class="text-center flex-grow flex flex-col">
                             <div class="text-5xl mb-4">🎓</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3" data-key="recipe1-title">生成你的 AI 互动周报</h3>
-                            <p class="text-sm text-gray-600 mb-6 leading-relaxed" data-key="recipe1-desc">每周一，花五分钟让 AI 帮你总结上周的讨论主题与核心洞察。不再是零散的回忆，而是一份清晰的个人成长报告。</p>
-                            <button onclick="openModal('weekly-report')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg transition text-sm inline-flex items-center gap-2" data-key="recipe1-btn">
+                            <p class="text-sm text-gray-600 mb-6 leading-relaxed flex-grow" data-key="recipe1-desc">每周一，花五分钟让 AI 帮你总结上周的讨论主题与核心洞察。不再是零散的回忆，而是一份清晰的个人成长报告。</p>
+                            <button onclick="openModal('weekly-report')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-lg transition text-sm flex items-center justify-center gap-2 mt-auto w-fit mx-auto" data-key="recipe1-btn">
                                 查看"周报"配方 →
                             </button>
                         </div>
                     </div>
                     
                     <!-- 配方卡片二：将零散想法，汇成深度洞察 -->
-                    <div class="recipe-card transition-all duration-200 ease-in-out bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1" data-card="2">
-                        <div class="text-center">
+                    <div class="recipe-card transition-all duration-200 ease-in-out bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 flex flex-col" data-card="2">
+                        <div class="text-center flex-grow flex flex-col">
                             <div class="text-5xl mb-4">📚</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3" data-key="recipe2-title">将零散想法，汇成主题洞察</h3>
-                            <p class="text-sm text-gray-600 mb-6 leading-relaxed" data-key="recipe2-desc">围绕一个项目或特定主题，将所有相关对话提炼成一份结构化的报告，清晰呈现核心论点、关键数据和那些容易被忽略的盲点。</p>
-                            <button onclick="openModal('insights')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg transition text-sm inline-flex items-center gap-2" data-key="recipe2-btn">
+                            <p class="text-sm text-gray-600 mb-6 leading-relaxed flex-grow" data-key="recipe2-desc">围绕一个项目或特定主题，将所有相关对话提炼成一份结构化的报告，清晰呈现核心论点、关键数据和那些容易被忽略的盲点。</p>
+                            <button onclick="openModal('insights')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-lg transition text-sm flex items-center justify-center gap-2 mt-auto w-fit mx-auto" data-key="recipe2-btn">
                                 查看"提炼"配方 →
                             </button>
                         </div>
                     </div>
                     
                     <!-- 配方卡片三：让 AI 成为看见你自己的镜子 -->
-                    <div class="recipe-card transition-all duration-200 ease-in-out bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1" data-card="3">
-                        <div class="text-center">
+                    <div class="recipe-card transition-all duration-200 ease-in-out bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 flex flex-col" data-card="3">
+                        <div class="text-center flex-grow flex flex-col">
                             <div class="text-5xl mb-4">🌱</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3" data-key="recipe3-title">让 AI 成为看见你自己的镜子</h3>
-                            <p class="text-sm text-gray-600 mb-6 leading-relaxed" data-key="recipe3-desc">这是一次有趣的自我探索。通过分析你独一无二的提问风格、关注点和解决问题的方式，AI 能为你提供一个崭新、有趣的自我认知视角。</p>
-                            <button onclick="openModal('self-discovery')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg transition text-sm inline-flex items-center gap-2" data-key="recipe3-btn">
+                            <p class="text-sm text-gray-600 mb-6 leading-relaxed flex-grow" data-key="recipe3-desc">这是一次有趣的自我探索。通过分析你独一无二的提问风格、关注点和解决问题的方式，AI 能为你提供一个崭新、有趣的自我认知视角。</p>
+                            <button onclick="openModal('self-discovery')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-lg transition text-sm flex items-center justify-center gap-2 mt-auto w-fit mx-auto" data-key="recipe3-btn">
                                 查看"探索"配方 →
                             </button>
                         </div>
