@@ -627,11 +627,14 @@ Next, start writing the analysis content directly`,
             const title = document.querySelector('title');
             const description = document.querySelector('meta[name="description"]');
             
+            // 将语言代码映射到HTML属性格式
+            const langAttr = lang === 'zh-CN' ? 'zh' : 'en';
+            
             if (title) {
-                title.textContent = title.getAttribute(`data-${lang}`);
+                title.textContent = title.getAttribute(`data-${langAttr}`);
             }
             if (description) {
-                description.setAttribute('content', description.getAttribute(`data-${lang}`));
+                description.setAttribute('content', description.getAttribute(`data-${langAttr}`));
             }
             
             // 更新所有带有data-key属性的元素
