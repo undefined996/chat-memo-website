@@ -48,6 +48,33 @@
     <!-- Preload Critical Resources -->
     <link rel="preload" href="resource/icons/logo.png" as="image">
     <link rel="preload" href="resource/videos/video.mp4" as="video" type="video/mp4">
+    
+    <!-- Custom Styles -->
+    <style>
+        /* 弹窗滚动条样式 */
+        .modal-content-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+        
+        .modal-content-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .modal-content-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
+        
+        .modal-content-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        
+        .modal-content-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
     <link rel="preload" href="resource/images/video_cover.jpg" as="image">
     
     <!-- DNS Prefetch for External Resources -->
@@ -219,11 +246,178 @@
                 'feature4-title': '隐私为先，本地存储',
                 'feature4-desc': '你的数据，只属于你。所有对话 100% 存储在你的本地设备，我们不会访问或共享你的数据，赋予你对个人智慧资产绝对的控制权。',
                 
+                // 发掘价值区域
+                'value-title': '每一个对话，都蕴藏未来的答案',
+                'value-subtitle': '你的对话历史，是一座未被开采的金矿。Chat Memo 帮你保存原始矿石，而下面这些"配方"，将教你如何点石成金。',
+                'recipe1-title': '生成你的 AI 互动周报',
+                'recipe1-desc': '每周一，花五分钟让 AI 帮你总结上周的讨论主题与核心洞察。不再是零散的回忆，而是一份清晰的个人成长报告。',
+                'recipe1-btn': '查看"周报"配方 →',
+                'recipe2-title': '将零散想法，汇成主题洞察',
+                'recipe2-desc': '围绕一个项目或特定主题，将所有相关对话提炼成一份结构化的报告，清晰呈现核心论点、关键数据和那些容易被忽略的盲点。',
+                'recipe2-btn': '查看"提炼"配方 →',
+                'recipe3-title': '让 AI 成为看见你自己的镜子',
+                'recipe3-desc': '这是一次有趣的自我探索。通过分析你独一无二的提问风格、关注点和解决问题的方式，AI 能为你提供一个崭新、有趣的自我认知视角。',
+                'recipe3-btn': '查看"探索"配方 →',
+                
+                // 弹窗内容
+                'modal-pro-tip-title': '💡 AI 功能正在路上',
+                'modal-pro-tip-desc': '此前你可手动按以下操作，与 AI 对话，获取历史洞察。',
+                'modal1-title': '生成你的 AI 互动周报',
+                'modal1-steps-title': '操作步骤：',
+                'modal1-steps': '<li>打开 Chat Memo，选择上周的所有对话记录2</li><li>将选中的对话导出或复制2</li><li>使用下方提示词，让 AI 为你生成周报</li>',
+                'modal1-prompt-title': '提示词配方：',
+                'modal2-title': '将零散想法，汇成主题洞察',
+                'modal2-steps-title': '操作步骤：',
+                'modal2-steps': '<li>在 Chat Memo 中搜索特定主题或项目相关的对话</li><li>收集所有相关的对话片段</li><li>使用下方提示词，让 AI 帮你提炼主题洞察</li>',
+                'modal2-prompt-title': '提示词配方：',
+                'modal3-title': '让 AI 成为看见你自己的镜子',
+                'modal3-steps-title': '操作步骤：',
+                'modal3-steps': '<li>收集你最近一个月的所有 AI 对话记录</li><li>选择不同类型的对话（工作、学习、创意等）</li><li>使用下方提示词，让 AI 为你进行个性化分析</li>',
+                'modal3-prompt-title': '提示词配方：',
+                'modal-steps-title': '操作步骤：',
+                'modal-prompt-title': '提示词配方：',
+                'copy-btn': '一键复制',
+                
+                // 弹窗内容 - 周报
+                'weekly-report-title': '生成你的 AI 互动周报',
+                'weekly-report-steps': '<li>打开 Chat Memo，导出所有对话</li><li>打开 Gemini 等推理 AI，上传上周的对话记录</li><li>使用下方提示词，让 AI 为你生成周报</li>',
+                'weekly-report-prompt': `// 提示词作者：一泽Eze
+// 名称：生成 AI 互动周报
+
+# 背景
+你擅长从我与 AI 的海量、零散对话信息中，关注我的提问与回应，识别我的核心模式、提炼关键洞见，并提供富有远见的行动建议。请严格、客观、深刻地履行你的职责。
+这是我过去一周与 AI 的完整对话记录文件，它们是原始的、未经加工的"思想矿石"。
+
+# 任务
+你的核心任务是，基于我提供的对话记录，为我生成一份最近 7 天的周报。这份周报的目标不是简单罗列我做了什么，而是要揭示我的智力焦点、思维模式，并为我下一周的行动提供高价值的导航。
+
+请参考以下格式输出报告，确保每一部分都言之有物、直击要点（如果你认为某部分特别值得展开，请详细讲讲）：
+
+---
+
+### 个人周报
+周期： [请根据对话记录填写起始日期]
+
+#### 🧠 本周智力焦点
+- 高度概括本周我投入最多心力的核心议题是什么，并简要复盘主要成果？
+
+#### ✨ 关键洞见与突破
+- "啊哈"时刻：列出用户本周最重要的 1-3 个"啊哈时刻"，直接引用对话中的关键结论。
+
+#### 🤔 难题与挑战
+- 反复出现的问题：我本周是否反复问及某个相似的问题，或在某个主题上停滞不前？这些问题不仅是"事"的问题，也有"人"的内在问题：这通常意味着我的深层的困惑/知识盲区/行为模式/心理动力问题，请犀利的挖掘出来。
+- 被忽略的线索：在对话中是否出现了一些极有潜力但被我忽略或没有追问的"线索"或"新想法"？
+
+#### 🚀 下周导航
+综合以上所有分析，给予用户简洁、温暖的鼓励，并提出 1-2 个富有启发性的问题或讨论，可作为我下周可选的深度思考，帮助我获得最大的认知突破或项目进展。
+
+---
+
+# 规则与约束
+1. 拒绝流水账：不要复述对话内容，要提炼和分析。
+2. 深刻而非表面：你的价值在于揭示我可能没有意识到的模式和联系。
+3. 言简意赅：整份报告应简洁有力，避免空话和不必要的修饰。
+4. 绝对客观：基于数据和事实进行分析，不要主观臆测。
+5. 批判性伙伴：不要只做总结者，更要做挑战者。
+6. 承认局限，谨慎措辞：在指出任何潜在的"缺失"或"盲区"时，你必须明确这是一个基于对话记录的观察，建议使用类似"在本次提供的对话中，似乎较少探讨……"的建言，严禁使用"你忽略了XX"或"你没有做XX"这类武断的判断。
+
+请开始你的分析。
+
+对话记录：
+[在此粘贴你的对话记录]`,
+                
+                // 弹窗内容 - 洞察
+                'insights-title': '将零散想法，汇成主题洞察',
+                'insights-steps': '<li>打开 Chat Memo，导出所有对话</li><li>打开 Gemini 等推理 AI，上传特定话题或项目相关的对话记录</li><li>使用下方提示词，让 AI 帮你提炼深度洞察</li>',
+                'insights-prompt': `请帮我分析以下关于 [主题/项目名称] 的对话记录，提炼出深度洞察报告。
+
+请按以下结构输出：
+
+## 🎯 主题概述
+[简要描述这个主题/项目的核心内容]
+
+## 🔍 核心论点梳理
+1. **论点一**：[详细阐述]
+   - 支撑证据：[从对话中提取的关键信息]
+   - 实际应用：[如何应用这个论点]
+
+2. **论点二**：[详细阐述]
+   - 支撑证据：[从对话中提取的关键信息]
+   - 实际应用：[如何应用这个论点]
+
+## 📊 关键数据与事实
+- [重要数据点1]
+- [重要数据点2]
+- [重要事实3]
+
+## ⚠️ 潜在盲点与风险
+- [可能被忽略的问题1]
+- [需要注意的风险2]
+- [值得进一步探索的方向3]
+
+## 🚀 行动建议
+1. **短期行动**：[1-2周内可以执行的具体步骤]
+2. **中期规划**：[1-3个月的发展方向]
+3. **长期愿景**：[更长远的目标和规划]
+
+## 🔗 相关资源推荐
+[基于讨论内容推荐的学习资源、工具或进一步阅读材料]
+
+---
+对话记录：
+[在此粘贴相关的对话记录]`,
+                
+                // 弹窗内容 - 自我探索
+                'self-discovery-title': '让 AI 成为看见你自己的镜子',
+                'self-discovery-steps': '<li>打开 Chat Memo，导出所有对话</li><li>打开 Gemini 等推理 AI，上传最近一个月/更多对话记录</li><li>使用下方提示词，让 AI 为你进行自我洞察</li>',
+                'self-discovery-prompt': `请作为一位资深的认知心理学家和数据分析师，帮我分析以下 AI 对话记录，为我提供一份个人认知风格报告。
+
+请按以下结构输出：
+
+## 🧠 思维特征画像
+### 提问风格分析
+- **提问类型偏好**：[分析我最常问的问题类型]
+- **思考深度**：[分析我的思考层次和深度]
+- **表达方式**：[分析我的沟通和表达特点]
+
+### 认知偏好
+- **学习方式**：[我偏好的学习和获取信息方式]
+- **决策模式**：[我在面对问题时的决策特点]
+- **创新倾向**：[我在创意和创新方面的表现]
+
+## 🎯 关注领域地图
+- **核心兴趣**：[我最关注的3-5个领域]
+- **知识结构**：[我的知识体系特点]
+- **成长方向**：[从对话中看出的发展趋势]
+
+## 🔍 隐藏的思维模式
+- **优势模式**：[我在思考和解决问题时的优势]
+- **思维盲区**：[可能存在的认知局限]
+- **潜在潜力**：[尚未充分发挥的能力]
+
+## 🌟 个性化成长建议
+### 基于你的认知特点，我建议：
+1. **强化优势**：[如何进一步发挥你的思维优势]
+2. **补齐短板**：[如何改善认知盲区]
+3. **拓展边界**：[如何探索新的思维领域]
+
+### 个性化学习路径：
+- **推荐学习方式**：[最适合你的学习方法]
+- **推荐阅读/资源**：[基于你的兴趣和认知特点的推荐]
+- **实践建议**：[具体的行动建议]
+
+## 🎭 你的"AI对话人格"
+[用有趣的方式描述你在与AI对话时展现出的独特个性]
+
+---
+对话记录：
+[在此粘贴你的对话记录]`,
+                
                 // 愿景部分
                 'vision-subtitle': '一封来自开发者的信',
                 'vision-title': '这不只是一个工具，更是一个开始',
                 'vision-author': '一泽Eze',
-                'vision-role': '开发者 & Maker',
+                'vision-role': '开发者 & 提示词工程师',
                 'vision-p1': '你好，我是一泽Eze，来自中国的 AI 博主和重度 AI 使用者，每天都与 AI 对话 8 小时以上。',
                 'vision-p2': '我深知 AI 对话中迸发的灵感火花有多么珍贵，也体会过它们因零散在各平台中，管理不善而流失的痛苦。于是，我为自己，也为和我有同样困扰的朋友们，创造了 Chat Memo。',
                 'vision-p3': 'Chat Memo 的目标，是帮助每个人打造"AI 记忆中枢"，将我们与 AI 的互动，真正沉淀为可积累的个人智慧。期待你一同加入与 AI 共同进步的旅程。',
@@ -246,7 +440,7 @@
                 'footer-copyright': '© 2025 Chat Memo by 一泽Eze. All rights reserved.',
                 'footer-chrome': 'Chrome 插件',
                 'footer-feedback': '反馈建议',
-                'footer-privacy': '隐私政策'
+                'footer-privacy': '隐私政策',
             },
             'en': {
                 // 导航
@@ -278,11 +472,178 @@
                 'feature4-title': 'Privacy First, Local Storage',
                 'feature4-desc': 'Your data is yours. All conversations are stored 100% locally on your device, giving you absolute control.',
                 
+                // Value Discovery Section
+                'value-title': 'Every Conversation Holds Tomorrow\'s Answer',
+                'value-subtitle': 'Your conversation history is an untapped goldmine. Chat Memo helps you preserve the raw ore, and these "recipes" below will teach you how to turn stone into gold.',
+                'recipe1-title': 'Generate Your AI Interaction Weekly Report',
+                'recipe1-desc': 'Every Monday, spend five minutes letting AI summarize last week\'s discussion topics and core insights. No more scattered memories, but a clear personal growth report.',
+                'recipe1-btn': 'View "Weekly Report" Recipe →',
+                'recipe2-title': 'Transform Scattered Ideas into Deep Insights',
+                'recipe2-desc': 'Around a project or specific topic, distill all related conversations into a structured report, clearly presenting core arguments, key data, and easily overlooked blind spots.',
+                'recipe2-btn': 'View "Distillation" Recipe →',
+                'recipe3-title': 'Let AI Be the Mirror to See Yourself',
+                'recipe3-desc': 'This is an interesting journey of self-discovery. By analyzing your unique questioning style, focus areas, and problem-solving approaches, AI can provide you with a fresh and fascinating perspective on self-awareness.',
+                'recipe3-btn': 'View "Exploration" Recipe →',
+                
+                // Modal Content
+                'modal-pro-tip-title': '💡 AI Features Coming Soon',
+                'modal-pro-tip-desc': 'For now, you can manually follow the steps below to chat with AI and gain historical insights.',
+                'modal1-title': 'Generate Your AI Interaction Weekly Report',
+                'modal1-steps-title': 'Steps:',
+                'modal1-steps': '<li>Open Chat Memo and export all conversations</li><li>Open Gemini or other reasoning AI, upload last week\'s conversation records</li><li>Use the prompt below to have AI generate your weekly report</li>',
+                'modal1-prompt-title': 'Prompt Recipe:',
+                'modal2-title': 'Transform Scattered Ideas into Deep Insights',
+                'modal2-steps-title': 'Steps:',
+                'modal2-steps': '<li>Open Chat Memo and export all conversations</li><li>Open Gemini or other reasoning AI, upload conversation records related to specific topics or projects</li><li>Use the prompt below to have AI help you distill thematic insights</li>',
+                'modal2-prompt-title': 'Prompt Recipe:',
+                'modal3-title': 'Let AI Be the Mirror to See Yourself',
+                'modal3-steps-title': 'Steps:',
+                'modal3-steps': '<li>Open Chat Memo and export all conversations</li><li>Open Gemini or other reasoning AI, upload conversation records from the past month or more</li><li>Use the prompt below to have AI perform self-insight analysis for you</li>',
+                'modal3-prompt-title': 'Prompt Recipe:',
+                'modal-steps-title': 'Steps:',
+                'modal-prompt-title': 'Prompt Recipe:',
+                'copy-btn': 'Copy',
+                
+                // Modal Content - Weekly Report
+                'weekly-report-title': 'Generate Your AI Interaction Weekly Report',
+                'weekly-report-steps': '<li>Open Chat Memo and export all conversations</li><li>Open Gemini or other reasoning AI, upload last week\'s conversation records</li><li>Use the prompt below to have AI generate your weekly report</li>',
+                'weekly-report-prompt': `// Prompt Author: Eze
+// Name: Generate AI Interaction Weekly Report
+
+# Background
+You excel at identifying core patterns, extracting key insights, and providing visionary action recommendations from my massive, scattered AI conversation information, focusing on my questions and responses. Please strictly, objectively, and deeply fulfill your responsibilities.
+This is my complete conversation record file with AI from the past week, which are raw, unprocessed "thought ores".
+
+# Task
+Your core task is to generate a weekly report for the last 7 days based on the conversation records I provide. The goal of this report is not to simply list what I did, but to reveal my intellectual focus, thinking patterns, and provide high-value navigation for my actions next week.
+
+Please refer to the following format to output the report, ensuring that each part is substantial and hits the point (if you think a certain part is particularly worth expanding, please elaborate):
+
+---
+
+### Personal Weekly Report
+Period: [Please fill in the start date based on conversation records]
+
+#### 🧠 This Week\'s Intellectual Focus
+- What was the core issue I invested the most energy in this week, and briefly review the main achievements?
+
+#### ✨ Key Insights and Breakthroughs
+- "Aha" moments: List the 1-3 most important "aha moments" for the user this week, directly quoting key conclusions from conversations.
+
+#### 🤔 Challenges and Difficulties
+- Recurring problems: Did I repeatedly ask similar questions this week, or get stuck on a certain topic? These problems are not only "task" problems, but also "personal" internal problems: this usually means my deep confusion/knowledge blind spots/behavioral patterns/psychological motivation issues, please sharply dig them out.
+- Ignored clues: Did some extremely potential but ignored or unquestioned "clues" or "new ideas" appear in the conversations?
+
+#### 🚀 Next Week Navigation
+Based on all the above analysis, give users concise, warm encouragement, and propose 1-2 inspiring questions or discussions that can serve as my optional deep thinking for next week, helping me achieve maximum cognitive breakthrough or project progress.
+
+---
+
+# Rules and Constraints
+1. Reject running accounts: Don\'t repeat conversation content, extract and analyze.
+2. Deep rather than superficial: Your value lies in revealing patterns and connections I may not be aware of.
+3. Concise and powerful: The entire report should be concise and powerful, avoiding empty words and unnecessary modifications.
+4. Absolutely objective: Analyze based on data and facts, don\'t subjectively speculate.
+5. Critical partner: Don\'t just be a summarizer, but also a challenger.
+6. Acknowledge limitations, careful wording: When pointing out any potential "missing" or "blind spots", you must make it clear that this is an observation based on conversation records. It is recommended to use similar "In the conversations provided this time, it seems that there is less discussion of..." advice, and it is strictly forbidden to use arbitrary judgments such as "you ignored XX" or "you didn\'t do XX".
+
+Please start your analysis.
+
+Conversation Records:
+[Paste your conversation records here]`,
+                
+                // Modal Content - Insights
+                'insights-title': 'Transform Scattered Ideas into Deep Insights',
+                'insights-steps': '<li>Open Chat Memo and export all conversations</li><li>Open Gemini or other reasoning AI, upload conversation records related to specific topics or projects</li><li>Use the prompt below to have AI help you distill thematic insights</li>',
+                'insights-prompt': `Please help me analyze the following conversation records about [Topic/Project Name] and extract a deep insight report.
+
+Please output according to the following structure:
+
+## 🎯 Topic Overview
+[Brief description of the core content of this topic/project]
+
+## 🔍 Core Argument Organization
+1. **Argument 1**: [Detailed elaboration]
+   - Supporting evidence: [Key information extracted from conversations]
+   - Practical application: [How to apply this argument]
+
+2. **Argument 2**: [Detailed elaboration]
+   - Supporting evidence: [Key information extracted from conversations]
+   - Practical application: [How to apply this argument]
+
+## 📊 Key Data and Facts
+- [Important data point 1]
+- [Important data point 2]
+- [Important fact 3]
+
+## ⚠️ Potential Blind Spots and Risks
+- [Possibly overlooked issue 1]
+- [Risk to be aware of 2]
+- [Direction worth further exploration 3]
+
+## 🚀 Action Recommendations
+1. **Short-term actions**: [Specific steps executable within 1-2 weeks]
+2. **Medium-term planning**: [Development direction for 1-3 months]
+3. **Long-term vision**: [Longer-term goals and planning]
+
+## 🔗 Related Resource Recommendations
+[Learning resources, tools, or further reading materials recommended based on discussion content]
+
+---
+Conversation Records:
+[Paste relevant conversation records here]`,
+                
+                // Modal Content - Self Discovery
+                'self-discovery-title': 'Let AI Be the Mirror to See Yourself',
+                'self-discovery-steps': '<li>Open Chat Memo and export all conversations</li><li>Open Gemini or other reasoning AI, upload conversation records from the past month or more</li><li>Use the prompt below to have AI perform self-insight analysis for you</li>',
+                'self-discovery-prompt': `Please act as a senior cognitive psychologist and data analyst to help me analyze the following AI conversation records and provide me with a personal cognitive style report.
+
+Please output according to the following structure:
+
+## 🧠 Thinking Characteristics Portrait
+### Questioning Style Analysis
+- **Question Type Preferences**: [Analyze the types of questions I ask most often]
+- **Thinking Depth**: [Analyze my thinking levels and depth]
+- **Expression Style**: [Analyze my communication and expression characteristics]
+
+### Cognitive Preferences
+- **Learning Methods**: [My preferred ways of learning and acquiring information]
+- **Decision-making Patterns**: [My decision-making characteristics when facing problems]
+- **Innovation Tendencies**: [My performance in creativity and innovation]
+
+## 🎯 Areas of Interest Map
+- **Core Interests**: [The 3-5 areas I focus on most]
+- **Knowledge Structure**: [Characteristics of my knowledge system]
+- **Growth Direction**: [Development trends seen from conversations]
+
+## 🔍 Hidden Thinking Patterns
+- **Advantage Patterns**: [My advantages in thinking and problem-solving]
+- **Thinking Blind Spots**: [Possible cognitive limitations]
+- **Potential Capabilities**: [Abilities not yet fully utilized]
+
+## 🌟 Personalized Growth Suggestions
+### Based on your cognitive characteristics, I suggest:
+1. **Strengthen Advantages**: [How to further leverage your thinking strengths]
+2. **Address Weaknesses**: [How to improve cognitive blind spots]
+3. **Expand Boundaries**: [How to explore new thinking domains]
+
+### Personalized Learning Path:
+- **Recommended Learning Methods**: [Learning methods most suitable for you]
+- **Recommended Reading/Resources**: [Recommendations based on your interests and cognitive characteristics]
+- **Practice Suggestions**: [Specific action recommendations]
+
+## 🎭 Your "AI Conversation Personality"
+[Describe in an interesting way the unique personality you show when conversing with AI]
+
+---
+Conversation Records:
+[Paste your conversation records here]`,
+                
                 // 愿景部分
                 'vision-subtitle': 'A Letter from the Developer',
                 'vision-title': 'This is not just a tool, but a beginning',
                 'vision-author': 'Eze',
-                'vision-role': 'Developer & Maker',
+                'vision-role': 'Developer & Prompt Engineer',
                 'vision-p1': 'Hello, I\'m Eze, an AI blogger and heavy AI user from China, conversing with AI for over 8 hours daily.',
                 'vision-p2': 'I deeply understand how precious the sparks of inspiration in AI conversations are, and I\'ve experienced the pain of losing them due to poor management across scattered platforms. So I created Chat Memo for myself and friends who share the same concerns.',
                 'vision-p3': 'Chat Memo\'s goal is to help everyone build an "AI Memory Hub," truly transforming our interactions with AI into a durable and evolving knowledge base. I look forward to you joining this journey of progress with AI.',
@@ -305,7 +666,7 @@
                 'footer-copyright': '© 2025 Chat Memo by Eze. All rights reserved.',
                 'footer-chrome': 'Chrome Extension',
                 'footer-feedback': 'Feedback',
-                'footer-privacy': 'Privacy Policy'
+                'footer-privacy': 'Privacy Policy',
             }
         };
         
@@ -314,6 +675,28 @@
             const browserLang = navigator.language || navigator.userLanguage;
             // 默认使用英文，只有明确检测到中文时才使用中文
             return browserLang.startsWith('zh') ? 'zh-CN' : 'en';
+        }
+        
+        // 更新弹窗内容的函数（重构版 - 用于语言切换时）
+        function updateModalContent(configKey, lang) {
+            const config = modalConfigs[configKey];
+            if (!config) {
+                console.error(`Modal config not found for key: ${configKey}`);
+                return;
+            }
+            
+            const t = translations[lang];
+            
+            // 更新标题
+            const modalTitle = document.getElementById('modal-title');
+            modalTitle.textContent = t[`${configKey}-title`] || `[Missing: ${configKey}-title]`;
+            
+            // 重新渲染操作步骤列表
+            renderModalSteps(configKey, lang);
+            
+            // 更新提示词内容
+            const promptElement = document.getElementById('modal-prompt');
+            promptElement.textContent = t[`${configKey}-prompt`] || `[Missing: ${configKey}-prompt]`;
         }
         
         // 切换语言
@@ -341,6 +724,15 @@
                     element.innerHTML = translations[lang][key];
                 }
             });
+            
+            // 更新已打开的弹窗内容
+            const openModal = document.getElementById('universal-modal');
+            if (openModal && !openModal.classList.contains('hidden')) {
+                const configKey = openModal.getAttribute('data-current-config');
+                if (configKey) {
+                    updateModalContent(configKey, lang);
+                }
+            }
             
             // 保存语言偏好
             localStorage.setItem('chat-memo-lang', lang);
@@ -421,6 +813,8 @@
                 userCountElement.textContent = '200+';
                 userCountElement.style.transform = 'scale(1)';
             }
+            
+
             
             // 移动端菜单控制
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -688,7 +1082,58 @@
             </div>
         </section>
 
-        <section id="vision" class="py-24">
+        <!-- 发掘价值互动区域 -->
+        <section id="value-discovery" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <!-- 区域总标题 -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-key="value-title">每一个对话，都蕴藏未来的答案</h2>
+                    <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" data-key="value-subtitle">你的对话历史，是一座未被开采的金矿。Chat Memo 帮你保存原始矿石，而下面这些"配方"，将教你如何点石成金。</p>
+                </div>
+                
+                <!-- 配方卡片容器 -->
+                <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 配方卡片一：生成你的 AI 互动周报 -->
+                    <div class="recipe-card transition-all duration-200 ease-in-out bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1" data-card="1">
+                        <div class="text-center">
+                            <div class="text-5xl mb-4">🎓</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3" data-key="recipe1-title">生成你的 AI 互动周报</h3>
+                            <p class="text-sm text-gray-600 mb-6 leading-relaxed" data-key="recipe1-desc">每周一，花五分钟让 AI 帮你总结上周的讨论主题与核心洞察。不再是零散的回忆，而是一份清晰的个人成长报告。</p>
+                            <button onclick="openModal('weekly-report')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg transition text-sm inline-flex items-center gap-2" data-key="recipe1-btn">
+                                查看"周报"配方 →
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 配方卡片二：将零散想法，汇成深度洞察 -->
+                    <div class="recipe-card transition-all duration-200 ease-in-out bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1" data-card="2">
+                        <div class="text-center">
+                            <div class="text-5xl mb-4">📚</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3" data-key="recipe2-title">将零散想法，汇成主题洞察</h3>
+                            <p class="text-sm text-gray-600 mb-6 leading-relaxed" data-key="recipe2-desc">围绕一个项目或特定主题，将所有相关对话提炼成一份结构化的报告，清晰呈现核心论点、关键数据和那些容易被忽略的盲点。</p>
+                            <button onclick="openModal('insights')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg transition text-sm inline-flex items-center gap-2" data-key="recipe2-btn">
+                                查看"提炼"配方 →
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 配方卡片三：让 AI 成为看见你自己的镜子 -->
+                    <div class="recipe-card transition-all duration-200 ease-in-out bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1" data-card="3">
+                        <div class="text-center">
+                            <div class="text-5xl mb-4">🌱</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3" data-key="recipe3-title">让 AI 成为看见你自己的镜子</h3>
+                            <p class="text-sm text-gray-600 mb-6 leading-relaxed" data-key="recipe3-desc">这是一次有趣的自我探索。通过分析你独一无二的提问风格、关注点和解决问题的方式，AI 能为你提供一个崭新、有趣的自我认知视角。</p>
+                            <button onclick="openModal('self-discovery')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg transition text-sm inline-flex items-center gap-2" data-key="recipe3-btn">
+                                查看"探索"配方 →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="py-24 bg-white">
             <div class="container mx-auto px-6 max-w-4xl">
                  <div class="text-center mb-16">
                     <h2 class="text-xl font-semibold text-blue-600 mb-3" data-key="vision-subtitle">一封来自开发者的信</h2>
@@ -789,9 +1234,205 @@
         </div>
     </footer>
 
+    <!-- 通用弹窗模态框 -->
+    <div id="universal-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] shadow-2xl border border-gray-100 transform transition-all duration-300 ease-out overflow-hidden">
+            <!-- 弹窗头部 -->
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 md:p-8 border-b border-gray-100">
+                <div class="flex justify-between items-start">
+                    <div class="flex-1">
+                        <h3 id="modal-title" class="text-2xl md:text-3xl font-bold text-gray-900"></h3>
+                    </div>
+                    <button onclick="closeModal('universal-modal')" class="ml-4 w-10 h-10 flex items-center justify-center rounded-full bg-white hover:bg-gray-50 text-gray-400 hover:text-gray-600 transition-all duration-200 shadow-sm border border-gray-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 弹窗内容 -->
+            <div class="p-6 md:p-8 space-y-8 overflow-y-auto max-h-[calc(90vh-120px)] modal-content-scroll">
+                <!-- Pro功能提示 -->
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="flex-1">
+                            <p class="text-sm text-blue-800 font-medium mb-1" data-key="modal-pro-tip-title">💡 AI 功能正在路上</p>
+                            <p class="text-sm text-blue-700 leading-relaxed" data-key="modal-pro-tip-desc">此前你可手动按以下操作，与 AI 对话，获取历史洞察。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 操作步骤 -->
+                <div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold">1</span>
+                        <span id="modal-steps-title" data-key="modal-steps-title">操作步骤</span>
+                    </h4>
+                    <ol id="modal-steps" class="space-y-3">
+                        <!-- 步骤将通过JavaScript动态填充 -->
+                    </ol>
+                </div>
+                
+                <!-- 提示词配方 -->
+                <div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold">2</span>
+                        <span id="modal-prompt-title" data-key="modal-prompt-title">提示词配方</span>
+                    </h4>
+                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-6 relative">
+                        <button onclick="copyToClipboard('modal-prompt')" class="absolute top-4 right-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2" data-key="copy-btn">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                            <span data-key="copy-btn">一键复制</span>
+                        </button>
+                        <pre id="modal-prompt" class="text-sm text-gray-700 whitespace-pre-wrap pr-20 leading-relaxed font-mono"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
+---
+对话记录：
+[在此粘贴你的对话记录]</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 弹窗配置键值映射（仅保留配置键，所有文本内容移至国际化配置）
+        const modalConfigs = {
+            'weekly-report': {
+                key: 'weekly-report'
+            },
+            'insights': {
+                key: 'insights'
+            },
+            'self-discovery': {
+                key: 'self-discovery'
+            }
+        };
+
+        // 通用弹窗控制函数（重构版 - 完全依赖国际化配置）
+        function openModal(configKey) {
+            const config = modalConfigs[configKey];
+            if (!config) {
+                console.error(`Modal config not found for key: ${configKey}`);
+                return;
+            }
+            
+            const currentLang = document.documentElement.getAttribute('data-lang') || 'zh-CN';
+            const t = translations[currentLang];
+            
+            // 设置弹窗标题 - 使用data-key属性统一处理
+            const modalTitle = document.getElementById('modal-title');
+            modalTitle.setAttribute('data-key', `${configKey}-title`);
+            modalTitle.textContent = t[`${configKey}-title`] || `[Missing: ${configKey}-title]`;
+            
+            // 渲染操作步骤列表
+            renderModalSteps(configKey, currentLang);
+            
+            // 设置提示词内容
+            const promptElement = document.getElementById('modal-prompt');
+            promptElement.textContent = t[`${configKey}-prompt`] || `[Missing: ${configKey}-prompt]`;
+            
+            // 显示弹窗并存储配置键
+            const modal = document.getElementById('universal-modal');
+            modal.classList.remove('hidden');
+            modal.setAttribute('data-current-config', configKey);
+        }
+        
+        // 渲染弹窗步骤列表的独立函数
+        function renderModalSteps(configKey, lang) {
+            const t = translations[lang];
+            const stepsList = document.getElementById('modal-steps');
+            stepsList.innerHTML = '';
+            
+            const stepsHtml = t[`${configKey}-steps`];
+            if (!stepsHtml) {
+                console.warn(`Steps not found for ${configKey} in ${lang}`);
+                return;
+            }
+            
+            // 解析步骤HTML并创建DOM元素
+            const stepsArray = stepsHtml.match(/<li>(.*?)<\/li>/g) || [];
+            stepsArray.forEach((stepHtml, index) => {
+                const stepText = stepHtml.replace(/<\/?li>/g, '');
+                const li = createStepElement(stepText, index + 1);
+                stepsList.appendChild(li);
+            });
+        }
+        
+        // 创建单个步骤元素的工厂函数
+        function createStepElement(stepText, stepNumber) {
+            const li = document.createElement('li');
+            li.className = 'flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl hover:shadow-sm transition-all duration-200';
+            li.innerHTML = `
+                <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    ${stepNumber}
+                </div>
+                <div class="flex-1">
+                    <p class="text-gray-800 leading-relaxed">${stepText}</p>
+                </div>
+            `;
+            return li;
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+        
+        // 复制到剪贴板函数
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                // 显示复制成功提示
+                const button = element.parentNode.querySelector('button');
+                const originalText = button.textContent;
+                button.textContent = '已复制！';
+                button.classList.add('bg-green-600');
+                button.classList.remove('bg-blue-600');
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.classList.remove('bg-green-600');
+                    button.classList.add('bg-blue-600');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('复制失败: ', err);
+                alert('复制失败，请手动复制');
+            });
+        }
+        
+
+        
+        // 点击遮罩关闭弹窗
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('bg-black') && e.target.classList.contains('bg-opacity-60')) {
+                const modalId = e.target.id;
+                closeModal(modalId);
+            }
+        });
+        
+        // ESC键关闭弹窗
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('universal-modal');
+                if (!modal.classList.contains('hidden')) {
+                    closeModal('universal-modal');
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
