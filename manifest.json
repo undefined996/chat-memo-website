@@ -1,0 +1,21 @@
+{
+  "name": "Chat Memo - Auto-save AI Conversations",
+  "short_name": "Chat Memo",
+  "description": "Aggregate your scattered conversations from ChatGPT, DeepSeek, Gemini and other platforms into your unified, private, searchable personal knowledge base.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "resource/icons/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "resource/icons/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
