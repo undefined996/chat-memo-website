@@ -1,0 +1,54 @@
+<!-- Footer Component -->
+<footer class="bg-white border-t border-gray-100">
+    <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <!-- 左侧：Logo、产品信息和版权 -->
+            <div class="flex flex-col space-y-3">
+                <div class="flex items-center space-x-3">
+                    <img src="resource/icons/logo.png" alt="Chat Memo Logo" class="h-6 w-6">
+                    <span class="text-base font-medium text-gray-900">Chat Memo</span>
+                </div>
+                <p class="text-xs text-gray-500" data-key="footer-copyright">&copy; 2025 Chat Memo by 一泽Eze. All rights reserved.</p>
+            </div>
+            
+            <!-- 右侧：导航链接和社交媒体 -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+                <!-- 导航链接 -->
+                <div class="flex flex-wrap items-center gap-6 text-sm">
+                    <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors" data-key="footer-chrome">Chrome 插件</a>
+                    <a href="/welcome.html" class="text-gray-600 hover:text-gray-900 transition-colors" data-key="footer-guide">使用指南</a>
+                    <a href="https://zkv549gmz8.feishu.cn/share/base/form/shrcnQRBNhLNtVBWSClmb9EKNyd" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors" data-key="footer-feedback">反馈建议</a>
+                    <a href="https://github.com/eze-is/Chat-Memo/blob/main/PRIVACY_POLICY.md" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors" data-key="footer-privacy">隐私政策</a>
+                </div>
+                
+                <!-- 社交媒体链接 -->
+                <div class="flex items-center space-x-4">
+                    <a href="https://discord.gg/sr7D9aG7" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#5865F2] transition-colors" title="Discord">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/eze_is_1" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" title="X (Twitter)">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.80l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <div class="relative group">
+                        <a href="#" class="text-gray-400 hover:text-green-600 transition-all duration-200 transform hover:scale-110" title="Chat Memo 作者公众号">
+                            <img src="resource/images/wechat.png" alt="微信" class="w-4 h-4 filter grayscale hover:grayscale-0 transition-all duration-200">
+                        </a>
+                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-50">
+                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 p-6 backdrop-blur-sm flex flex-col items-center">
+                                <img src="resource/images/author-wechat.png" alt="微信二维码" class="w-40 h-40 rounded-lg mb-4">
+                                <p class="text-sm text-gray-700 text-center whitespace-nowrap font-medium" data-key="footer-wechat-text">Chat Memo 作者公众号</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://web-next.okjike.com/u/541e16ce-7faa-4476-ba8a-6b6c8971c75b" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" title="即刻">
+                        <img src="resource/icons/jike_icon.png" alt="即刻" class="w-4 h-4 filter grayscale hover:grayscale-0 transition-all">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

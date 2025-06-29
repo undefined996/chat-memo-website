@@ -413,6 +413,7 @@
                 // 页脚
                 'footer-copyright': '© 2025 Chat Memo by 一泽Eze. All rights reserved.',
                 'footer-chrome': 'Chrome 插件',
+                'footer-guide': '使用指南',
                 'footer-feedback': '反馈建议',
                 'footer-privacy': '隐私政策',
             },
@@ -598,6 +599,7 @@ Next, start writing the analysis content directly`,
                 // 页脚
                 'footer-copyright': '© 2025 Chat Memo by Eze. All rights reserved.',
                 'footer-chrome': 'Chrome Extension',
+                'footer-guide': 'User Guide',
                 'footer-feedback': 'Feedback',
                 'footer-privacy': 'Privacy Policy',
             }
@@ -652,7 +654,7 @@ Next, start writing the analysis content directly`,
                 description.setAttribute('content', description.getAttribute(`data-${langAttr}`));
             }
             
-            // 更新所有带有data-key属性的元素
+            // 更新所有带有data-key属性的元素（包括footer组件中的元素）
             const elements = document.querySelectorAll('[data-key]');
             elements.forEach(element => {
                 const key = element.getAttribute('data-key');
@@ -1130,47 +1132,30 @@ Next, start writing the analysis content directly`,
         </section>
     </main>
 
-    <footer class="bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <!-- 左侧：Logo、产品信息和版权 -->
-                <div class="flex flex-col space-y-3">
-                    <div class="flex items-center space-x-3">
-                        <img src="resource/icons/logo.png" alt="Chat Memo Logo" class="h-6 w-6">
-                        <span class="text-base font-medium text-gray-900">Chat Memo</span>
-                    </div>
-                    <p class="text-xs text-gray-500" data-key="footer-copyright">&copy; 2025 Chat Memo by 一泽Eze. All rights reserved.</p>
-                </div>
+    <!-- 引入 Footer 组件 -->
+    <div id="footer-container"></div>
+
+    <!-- 加载 Footer 组件 -->
+    <script>
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
                 
-                <!-- 右侧：导航链接和社交媒体 -->
-                <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
-                    <!-- 导航链接 -->
-                    <div class="flex flex-wrap items-center gap-6 text-sm">
-                        <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors" data-key="footer-chrome">Chrome 插件</a>
-                        <a href="https://zkv549gmz8.feishu.cn/share/base/form/shrcnQRBNhLNtVBWSClmb9EKNyd" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors" data-key="footer-feedback">反馈建议</a>
-                        <a href="https://github.com/eze-is/Chat-Memo/blob/main/PRIVACY_POLICY.md" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors" data-key="footer-privacy">隐私政策</a>
-                    </div>
-                    
-                    <!-- 社交媒体链接 -->
-                    <div class="flex items-center space-x-4">
-                        <a href="https://discord.gg/sr7D9aG7" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#5865F2] transition-colors" title="Discord">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-                            </svg>
-                        </a>
-                        <a href="https://x.com/eze_is_1" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" title="X (Twitter)">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.80l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                        </a>
-                        <a href="https://web-next.okjike.com/u/541e16ce-7faa-4476-ba8a-6b6c8971c75b" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" title="即刻">
-                            <img src="resource/icons/jike_icon.png" alt="即刻" class="w-4 h-4 filter grayscale hover:grayscale-0 transition-all">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+                // 加载完成后应用当前语言设置
+                const currentLang = document.documentElement.getAttribute('data-lang') || localStorage.getItem('chat-memo-lang') || 'zh-CN';
+                
+                // 更新footer中带有data-key属性的元素
+                const footerElements = document.getElementById('footer-container').querySelectorAll('[data-key]');
+                footerElements.forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (translations[currentLang] && translations[currentLang][key]) {
+                        element.innerHTML = translations[currentLang][key];
+                    }
+                });
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
 
     <!-- 通用弹窗模态框 -->
     <div id="universal-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex items-center justify-center p-4 backdrop-blur-sm">
