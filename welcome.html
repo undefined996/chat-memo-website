@@ -641,7 +641,8 @@
             elements.forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
-                    if (element.innerHTML.includes('<br>')) {
+                    // 检查翻译内容是否包含HTML标签（<br>、<a>等）
+                    if (translations[lang][key].includes('<br>') || translations[lang][key].includes('<a')) {
                         element.innerHTML = translations[lang][key];
                     } else {
                         element.textContent = translations[lang][key];
