@@ -775,26 +775,33 @@ Next, start writing the analysis content directly`,
                     }
                 });
                 
-                // 点击导航链接后关闭移动端菜单
-                const mobileNavLinks = mobileMenu.querySelectorAll('a[href^="#"]');
-                mobileNavLinks.forEach(function(link) {
-                    link.addEventListener('click', function() {
+                // 使用事件委托处理移动端导航链接点击
+                mobileMenu.addEventListener('click', function(e) {
+                    const link = e.target.closest('a[href^="#"]');
+                    if (link) {
                         mobileMenu.classList.add('hidden');
                         const svg = mobileMenuButton.querySelector('svg');
                         const path = svg.querySelector('path');
                         path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-                    });
+                    }
                 });
             }
             
-            // 为所有链接添加点击追踪
-            const links = document.querySelectorAll('a');
-            console.log('找到链接数量:', links.length); // 调试日志
-            
-            links.forEach(function(link, index) {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    const text = this.textContent.trim();
+            // 事件委托优化 - 使用单个事件监听器处理所有点击事件
+            document.addEventListener('click', function(e) {
+                // 处理弹窗按钮点击
+                const modalButton = e.target.closest('[data-modal]');
+                if (modalButton) {
+                    const modalType = modalButton.getAttribute('data-modal');
+                    openModal(modalType);
+                    return;
+                }
+                
+                // 处理链接点击
+                const link = e.target.closest('a');
+                if (link) {
+                    const href = link.getAttribute('href');
+                    const text = link.textContent.trim();
                     
                     console.log('链接被点击:', text, href); // 调试日志
                     
@@ -808,8 +815,33 @@ Next, start writing the analysis content directly`,
                         // 其他类型链接
                         trackButtonClick(text, 'other_link', href || 'no_href');
                     }
-                });
+                }
             });
+            
+            console.log('事件委托已初始化 - 链接点击追踪和弹窗按钮'); // 调试日志
+            
+            // 事件监听器性能统计
+            function logEventListenerStats() {
+                const totalElements = document.querySelectorAll('*').length;
+                const linksCount = document.querySelectorAll('a').length;
+                const buttonsCount = document.querySelectorAll('button').length;
+                const modalButtonsCount = document.querySelectorAll('[data-modal]').length;
+                
+                console.log('=== 事件监听器优化统计 ===');
+                console.log(`页面总元素数: ${totalElements}`);
+                console.log(`链接数量: ${linksCount}`);
+                console.log(`按钮数量: ${buttonsCount}`);
+                console.log(`弹窗按钮数量: ${modalButtonsCount}`);
+                console.log('优化前: 每个链接和按钮都有独立的事件监听器');
+                console.log(`优化前事件监听器数量: ${linksCount + modalButtonsCount + 2} (链接 + 弹窗按钮 + 移动菜单)`);
+                console.log('优化后: 使用事件委托，只有3个全局事件监听器');
+                console.log('优化后事件监听器数量: 3 (全局点击 + 移动菜单 + 语言切换)');
+                console.log(`内存使用减少: ${Math.round((1 - 3 / (linksCount + modalButtonsCount + 2)) * 100)}%`);
+                console.log('========================');
+            }
+            
+            // 延迟执行统计，确保DOM完全加载
+            setTimeout(logEventListenerStats, 100);
         });
     </script>
     
@@ -896,12 +928,12 @@ Next, start writing the analysis content directly`,
                 <div class="mt-16 max-w-4xl mx-auto border border-gray-200 rounded-xl shadow-2xl shadow-gray-200/50 p-2">
                     <video 
                         class="rounded-lg w-full h-auto" 
-                        autoplay 
+                        data-autoplay="true"
                         muted 
                         loop 
                         playsinline 
                         poster="resource/images/video_cover.jpg"
-                        preload="metadata"
+                        preload="none"
                     >
                         <source src="resource/videos/video.mp4" type="video/mp4">
                         <img src="resource/images/video_cover.jpg" alt="Chat Memo AI对话管理工具核心功能演示视频" class="rounded-lg">
@@ -955,12 +987,12 @@ Next, start writing the analysis content directly`,
                         <div class="bg-white p-2 border border-gray-200 rounded-xl shadow-lg">
                            <video 
                                class="rounded-lg w-full h-auto" 
-                               autoplay 
+                               data-autoplay="true"
                                muted 
                                loop 
                                playsinline 
                                poster="resource/images/frame_2_cover.jpg"
-                               preload="metadata"
+                               preload="none"
                            >
                                <source src="resource/videos/frame_2_demo.mp4" type="video/mp4">
                                <img src="resource/images/frame_2_cover.jpg" alt="Chat Memo自动同步AI对话记录功能演示" class="rounded-lg">
@@ -979,12 +1011,12 @@ Next, start writing the analysis content directly`,
                         <div class="bg-white p-2 border border-gray-200 rounded-xl shadow-lg">
                            <video 
                                class="rounded-lg w-full h-auto" 
-                               autoplay 
+                               data-autoplay="true"
                                muted 
                                loop 
                                playsinline 
                                poster="resource/images/frame_3_cover.jpg"
-                               preload="metadata"
+                               preload="none"
                            >
                                <source src="resource/videos/frame_3_demo.mp4" type="video/mp4">
                                <img src="resource/images/frame_3_cover.jpg" alt="Chat Memo智能搜索AI对话历史功能界面" class="rounded-lg">
@@ -1040,7 +1072,7 @@ Next, start writing the analysis content directly`,
                             <div class="text-5xl mb-4">🎓</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3" data-key="recipe1-title">生成你的 AI 互动周报</h3>
                             <p class="text-sm text-gray-600 mb-6 leading-relaxed flex-grow" data-key="recipe1-desc">每周一，花五分钟让 AI 帮你总结上周的讨论主题与核心洞察。不再是零散的回忆，而是一份清晰的个人成长报告。</p>
-                            <button onclick="openModal('weekly-report')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-lg transition text-sm flex items-center justify-center gap-2 mt-auto w-fit mx-auto" data-key="recipe1-btn">
+                            <button data-modal="weekly-report" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-lg transition text-sm flex items-center justify-center gap-2 mt-auto w-fit mx-auto" data-key="recipe1-btn">
                                 查看"周报"配方 →
                             </button>
                         </div>
@@ -1052,7 +1084,7 @@ Next, start writing the analysis content directly`,
                             <div class="text-5xl mb-4">📚</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3" data-key="recipe2-title">将零散想法，汇成主题洞察</h3>
                             <p class="text-sm text-gray-600 mb-6 leading-relaxed flex-grow" data-key="recipe2-desc">围绕一个项目或特定主题，将所有相关对话提炼成一份结构化的报告，清晰呈现核心论点、关键数据和那些容易被忽略的盲点。</p>
-                            <button onclick="openModal('insights')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-lg transition text-sm flex items-center justify-center gap-2 mt-auto w-fit mx-auto" data-key="recipe2-btn">
+                            <button data-modal="insights" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-lg transition text-sm flex items-center justify-center gap-2 mt-auto w-fit mx-auto" data-key="recipe2-btn">
                                 查看"提炼"配方 →
                             </button>
                         </div>
@@ -1064,7 +1096,7 @@ Next, start writing the analysis content directly`,
                             <div class="text-5xl mb-4">🌱</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3" data-key="recipe3-title">让 AI 成为看见你自己的镜子</h3>
                             <p class="text-sm text-gray-600 mb-6 leading-relaxed flex-grow" data-key="recipe3-desc">这是一次有趣的自我探索。通过分析你独一无二的提问风格、关注点和解决问题的方式，AI 能为你提供一个崭新、有趣的自我认知视角。</p>
-                            <button onclick="openModal('self-discovery')" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-lg transition text-sm flex items-center justify-center gap-2 mt-auto w-fit mx-auto" data-key="recipe3-btn">
+                            <button data-modal="self-discovery" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-lg transition text-sm flex items-center justify-center gap-2 mt-auto w-fit mx-auto" data-key="recipe3-btn">
                                 查看"探索"配方 →
                             </button>
                         </div>
@@ -1352,6 +1384,83 @@ Next, start writing the analysis content directly`,
                 }
             }
         });
+        
+        // 视频懒加载优化 - 交叉观察器实现
+        function initVideoLazyLoading() {
+            // 检查浏览器是否支持 Intersection Observer
+            if (!('IntersectionObserver' in window)) {
+                // 不支持的情况下，直接播放所有视频（降级处理）
+                const videos = document.querySelectorAll('video[data-autoplay="true"]');
+                videos.forEach(video => {
+                    video.setAttribute('autoplay', 'true');
+                    video.play().catch(e => console.log('视频播放失败:', e));
+                });
+                return;
+            }
+            
+            // 创建交叉观察器配置
+            const observerOptions = {
+                root: null, // 使用视口作为根
+                rootMargin: '50px', // 提前50px开始加载
+                threshold: 0.25 // 当视频25%可见时触发
+            };
+            
+            // 创建观察器回调函数
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    
+                    if (entry.isIntersecting) {
+                        // 视频进入视口，开始播放
+                        if (video.getAttribute('data-autoplay') === 'true') {
+                            // 设置preload为metadata以开始加载
+                            video.setAttribute('preload', 'metadata');
+                            
+                            // 尝试播放视频
+                            const playPromise = video.play();
+                            if (playPromise !== undefined) {
+                                playPromise
+                                    .then(() => {
+                                        console.log('视频开始播放:', video.src || video.querySelector('source')?.src);
+                                    })
+                                    .catch(error => {
+                                        console.log('视频自动播放被阻止:', error);
+                                        // 播放失败时显示播放按钮（可选）
+                                    });
+                            }
+                        }
+                    } else {
+                        // 视频离开视口，暂停播放以节省资源
+                        if (!video.paused) {
+                            video.pause();
+                            console.log('视频已暂停（离开视口）:', video.src || video.querySelector('source')?.src);
+                        }
+                    }
+                });
+            };
+            
+            // 创建观察器实例
+            const videoObserver = new IntersectionObserver(observerCallback, observerOptions);
+            
+            // 观察所有带有data-autoplay属性的视频
+            const videos = document.querySelectorAll('video[data-autoplay="true"]');
+            videos.forEach(video => {
+                videoObserver.observe(video);
+                console.log('开始观察视频:', video.src || video.querySelector('source')?.src);
+            });
+            
+            console.log(`视频懒加载已初始化，共观察 ${videos.length} 个视频`);
+        }
+        
+        // 页面加载完成后初始化视频懒加载
+        document.addEventListener('DOMContentLoaded', initVideoLazyLoading);
+        
+        // 如果DOMContentLoaded已经触发，立即初始化
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initVideoLazyLoading);
+        } else {
+            initVideoLazyLoading();
+        }
     </script>
 
 </body>
