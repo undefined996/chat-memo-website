@@ -92,14 +92,7 @@
             border: 1px solid #e5e7eb;
             border-radius: 0.75rem;
             padding: 1.5rem;
-            transition: all 0.2s ease-in-out;
             box-shadow: none;
-        }
-        
-        .update-card:hover {
-            transform: translateY(-0.25rem);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border-color: #93c5fd;
         }
         
         /* 标签样式 - 提高饱和度 */
@@ -143,10 +136,6 @@
             transition: all 0.2s ease-in-out;
         }
         
-        .feature-group:hover {
-            background: rgba(248, 250, 252, 0.9);
-            border-color: rgba(203, 213, 225, 0.9);
-        }
         
         /* 分组标题样式 */
         .group-title {
@@ -166,11 +155,6 @@
             transition: all 0.15s ease-in-out;
         }
         
-        .feature-item:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-color: rgba(203, 213, 225, 0.8);
-        }
         
         /* 图标样式 */
         .group-icon {
@@ -256,7 +240,7 @@
         .hero-section.collapsed {
             min-height: 300px !important;
             max-height: 300px !important;
-            padding: 90px 0 30px 0 !important;
+            padding: 100px 0 20px 0 !important;
             justify-content: center !important;
             align-items: center !important;
         }
@@ -405,9 +389,9 @@
                 // Updates page
                 'updates-title': 'Chat Memo Updates',
                 'updates-subtitle': 'Track every improvement of Chat Memo and witness how we continuously enhance user experience',
-                'tag-new': 'New Feature',
-                'tag-improvement': 'Improvement',
-                'tag-fix': 'Bug Fix',
+                'tag-new': 'New Features',
+                'tag-improvement': 'Improvements',
+                'tag-fix': 'Bug Fixes',
                 'loading-failed': 'Loading Failed',
                 'loading-failed-desc': 'Unable to load update content, please try again later',
                 'reload-btn': 'Reload',
@@ -426,7 +410,8 @@
         // 语言检测函数
         function detectLanguage() {
             const browserLang = navigator.language || navigator.userLanguage;
-            return browserLang.startsWith('zh') ? 'zh-CN' : 'en';
+            // 默认使用中文，只有明确是英文环境时才使用英文
+            return browserLang.startsWith('en') ? 'en' : 'zh-CN';
         }
         
         // 应用翻译
