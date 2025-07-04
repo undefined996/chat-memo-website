@@ -58,6 +58,47 @@
             font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
         }
         
+        /* 英雄区动画样式 */
+        .hero-section {
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: top center;
+        }
+        
+        .hero-section.collapsed {
+            min-height: 400px !important;
+            max-height: 400px !important;
+            padding: 130px 0 30px 0 !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        
+        .hero-content {
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-content.collapsed {
+            transform: scale(0.8);
+        }
+        
+        /* 内容区域动画 */
+        .content-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: 0.3s;
+        }
+        
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 禁用滚动样式 */
+        .no-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
+        
         /* 自定义滚动条样式 */
         ::-webkit-scrollbar {
             width: 8px;
@@ -117,8 +158,12 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="pt-40 pb-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 text-gray-900">
-            <div class="container mx-auto px-6 text-center">
+        <section id="hero-section" class="hero-section min-h-screen bg-white relative overflow-hidden flex items-center">
+            <!-- 高斯模糊Logo背景 -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-15">
+                <img src="resource/icons/logo.png" alt="Chat Memo Logo" class="w-96 h-96 object-contain filter blur-3xl scale-150">
+            </div>
+            <div id="hero-content" class="hero-content container mx-auto px-6 text-center relative z-10">
 
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-[1.1]">
                     <span class="text-4xl md:text-6xl">🎉</span> 
@@ -151,7 +196,7 @@
         </section>
 
         <!-- Quick Start Guide -->
-        <section class="py-24 bg-gray-50/70">
+        <section id="content-section" class="content-section py-24 bg-gray-50/70">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-key="guide-title">
@@ -556,7 +601,7 @@
                 'step1-title': 'Start Chatting',
                 'step1-description': 'Use ChatGPT, Gemini, DeepSeek and other AI platforms normally',
                 'step2-title': 'Auto Save',
-                'step2-description': 'Chat Memo will automatically save the conversation; click the floating label to open the sidebar to view the saved content',
+                'step2-description': 'Chat Memo will automatically save the conversation; click the floating label to open the sidebar to view the content',
                 'step3-title': 'Copy/Export',
                 'step3-description': 'Copy individual conversations in chat details, or export all conversation records with one click in settings',
                 'step3-status': 'Export Anytime',
@@ -740,8 +785,40 @@
             }
         }
         
-        // 为所有按钮添加点击追踪
+        // 英雄区动画函数
+        function startHeroAnimation() {
+            // 页面加载时立即禁用滚动
+            document.body.classList.add('no-scroll');
+            
+            // 延迟1.5秒后开始动画，让用户先看到完整的英雄区
+            setTimeout(() => {
+                const heroSection = document.getElementById('hero-section');
+                const heroContent = document.getElementById('hero-content');
+                const contentSection = document.getElementById('content-section');
+                
+                // 添加收缩样式
+                heroSection.classList.add('collapsed');
+                heroContent.classList.add('collapsed');
+                
+                // 延迟显示内容区域，让英雄区动画先完成一部分
+                setTimeout(() => {
+                    contentSection.classList.add('visible');
+                    
+                    // 动画完全完成后重新启用滚动
+                    // 等待content-section的动画完成（1s + 0.3s delay = 1.3s）
+                    setTimeout(() => {
+                        document.body.classList.remove('no-scroll');
+                    }, 1300);
+                }, 600);
+                
+            }, 1500);
+        }
+        
+        // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', async function() {
+            // 重置滚动位置到顶部，不记忆用户之前的滚动位置
+            window.scrollTo(0, 0);
+            
             // 加载导航组件
             await loadNavbar();
             
@@ -773,6 +850,12 @@
             // 加载Footer组件
             loadFooter();
             
+            // 确保所有内容加载完成后滚动位置仍在顶部
+            window.scrollTo(0, 0);
+            
+            // 启动英雄区动画
+            startHeroAnimation();
+            
             const buttons = document.querySelectorAll('a[href], button');
             buttons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -790,6 +873,11 @@
             });
         });
         
+        // 页面完全加载后的额外保障
+        window.addEventListener('load', function() {
+            // 再次确保滚动位置在顶部
+            window.scrollTo(0, 0);
+        });
 
     </script>
 </body>
