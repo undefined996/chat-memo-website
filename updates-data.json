@@ -1,0 +1,155 @@
+{
+  "updates": [
+    {
+      "version": "v1.0.8",
+      "date": {
+        "zh-CN": "2025年7月3日",
+        "en": "July 3, 2025"
+      },
+      "summary": {
+        "zh-CN": "感谢用户 @James 的建议，你要的合并导出聊天记录为单一文件的功能来了，方便大家与 AI 平台对话交互 🥰",
+        "en": "Thanks to user @James' suggestion, the feature to merge and export chat records into a single file is here, making it convenient for everyone to interact with AI platforms 🥰"
+      },
+      "features": [
+        {
+          "type": "new",
+          "title": {
+            "zh-CN": "导出功能",
+            "en": "Export Feature"
+          },
+          "description": {
+            "zh-CN": "新增「合并为一个文档」导出的功能，方便与 AI 平台对话",
+            "en": "Added 'merge into one document' export feature for convenient AI platform conversations"
+          }
+        }
+      ]
+    },
+    {
+      "version": "v1.0.7",
+      "date": {
+        "zh-CN": "2025年7月2日",
+        "en": "July 2, 2025"
+      },
+      "summary": {
+        "zh-CN": "文案优化和 Gemini 平台功能增强，再也不怕多用户状态下，Gemini 的对话记录无法保存了！感谢用户 @William、李童 的反馈 🙌",
+        "en": "Copy optimization and Gemini platform enhancements. No more worries about Gemini conversation records not being saved in multi-user scenarios! Thanks to users @William and Li Tong for their feedback 🙌"
+      },
+      "features": [
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "文案优化",
+            "en": "Copy Optimization"
+          },
+          "description": {
+            "zh-CN": "修正悬浮标签「自动记忆中」文案为「自动记忆」，防止误解",
+            "en": "Fixed floating label text from 'Auto Memorizing' to 'Auto Memory' to prevent misunderstanding"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "Gemini 平台增强",
+            "en": "Gemini Platform Enhancement"
+          },
+          "description": {
+            "zh-CN": "新增对 `/*/*/app/*` 和 `/*/*/gem/*/*` URL 格式的支持",
+            "en": "Added support for `/*/*/app/*` and `/*/*/gem/*/*` URL formats"
+          }
+        }
+      ]
+    },
+    {
+      "version": "v1.0.6",
+      "date": {
+        "zh-CN": "2025年7月1日",
+        "en": "July 1, 2025"
+      },
+      "summary": {
+        "zh-CN": "增加首次安装引导功能，方便你们快速上手～",
+        "en": "Added first-time installation guide feature to help you get started quickly~"
+      },
+      "features": [
+        {
+          "type": "new",
+          "title": {
+            "zh-CN": "安装引导",
+            "en": "Installation Guide"
+          },
+          "description": {
+            "zh-CN": "增加了首次下载安装时，弹出引导网页的功能",
+            "en": "Added feature to show guide webpage when first downloading and installing"
+          }
+        }
+      ]
+    },
+    {
+      "version": "v1.0.5",
+      "date": {
+        "zh-CN": "2025年6月30日",
+        "en": "June 30, 2025"
+      },
+      "summary": {
+        "zh-CN": "Chat Memo 的第一个对外公开版本，祝大家使用愉快！",
+        "en": "Chat Memo's first public release version, hope everyone enjoys using it!"
+      },
+      "features": [
+        {
+          "type": "new",
+          "title": {
+            "zh-CN": "关键词搜索功能",
+            "en": "Keyword Search Feature"
+          },
+          "description": {
+            "zh-CN": "新增了强大的关键词搜索功能，可以快速在所有对话记录中查找内容",
+            "en": "Added powerful keyword search functionality to quickly find content across all conversation records"
+          }
+        },
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "Gemini 平台修复",
+            "en": "Gemini Platform Fix"
+          },
+          "description": {
+            "zh-CN": "修复了 Gemini 平台的问题，确保刷新页面后不会丢失消息记录",
+            "en": "Fixed Gemini platform issues, ensuring message records won't be lost after page refresh"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "品牌更名",
+            "en": "Brand Rename"
+          },
+          "description": {
+            "zh-CN": "产品名称正式更新为 \"Chat Memo\"，以更好地反映其核心价值",
+            "en": "Product name officially updated to \"Chat Memo\" to better reflect its core value"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "官方网站入口",
+            "en": "Official Website Entry"
+          },
+          "description": {
+            "zh-CN": "增加了官方网站入口",
+            "en": "Added official website entry"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "界面UI优化",
+            "en": "UI Optimization"
+          },
+          "description": {
+            "zh-CN": "优化了界面 UI 细节",
+            "en": "Optimized UI details"
+          }
+        }
+      ]
+    }
+  ]
+}

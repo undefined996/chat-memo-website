@@ -113,32 +113,7 @@
 <body class="bg-white text-gray-800 antialiased">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <img src="resource/icons/logo.png" alt="Chat Memo - AI对话管理工具Logo" class="h-8 w-8">
-                    <span class="text-xl font-bold text-gray-900">Chat Memo</span>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="/" class="hidden md:flex text-gray-600 hover:text-gray-900 transition items-center justify-center min-h-[40px] px-4" data-key="nav-home">
-                        返回首页
-                    </a>
-                    <!-- Desktop Language Switch Button -->
-                    <button id="lang-switch-btn" class="hidden md:flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 transition text-sm font-medium text-gray-600 hover:text-gray-900" title="切换语言 / Switch Language">
-                        <span id="lang-display">中</span>
-                    </button>
-                    <!-- Mobile Language Switch Button -->
-                    <button id="lang-switch-btn-mobile" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 transition text-sm font-medium text-gray-600 hover:text-gray-900" title="切换语言 / Switch Language">
-                        <span id="lang-display-mobile">中</span>
-                    </button>
-                    <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfci" target="_blank" rel="noopener noreferrer" class="hidden md:flex bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition text-sm min-h-[40px] items-center justify-center" data-key="nav-chrome">
-                        免费添加至 Chrome
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div id="navbar-container"></div>
 
     <main>
         <!-- Hero Section -->
@@ -491,7 +466,10 @@
         const translations = {
             'zh-CN': {
                 // 导航
-                'nav-home': '返回首页',
+                'nav-overview': '概览',
+                'nav-guide': '入门指南',
+                'nav-updates': '更新日志',
+                'nav-feedback': '反馈',
                 'nav-chrome': '免费添加至 Chrome',
                 
                 // Hero区域
@@ -560,7 +538,10 @@
             },
             'en': {
                 // 导航
-                'nav-home': 'Back to Home',
+                'nav-overview': 'Overview',
+                'nav-guide': 'Getting Started',
+                'nav-updates': 'Updates',
+                'nav-feedback': 'Feedback',
                 'nav-chrome': 'Add to Chrome for Free',
                 
                 // Hero区域
@@ -748,8 +729,22 @@
             }
         }
         
+        // 加载导航组件
+        async function loadNavbar() {
+            try {
+                const response = await fetch('components/navbar.html');
+                const navbarHTML = await response.text();
+                document.getElementById('navbar-container').innerHTML = navbarHTML;
+            } catch (error) {
+                console.error('Failed to load navbar:', error);
+            }
+        }
+        
         // 为所有按钮添加点击追踪
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', async function() {
+            // 加载导航组件
+            await loadNavbar();
+            
             // 初始化语言
             const savedLang = localStorage.getItem('chat-memo-lang');
             const defaultLang = savedLang || detectLanguage();

@@ -1,0 +1,50 @@
+<!-- Navigation Component -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="resource/icons/logo.png" alt="Chat Memo - AI对话管理工具Logo" class="h-8 w-8">
+                <span class="text-xl font-bold text-gray-900">Chat Memo</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="/" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]" data-key="nav-overview">概览</a>
+                <a href="/welcome.html" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]" data-key="nav-guide">入门指南</a>
+                <a href="/updates.html" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]" data-key="nav-updates">更新日志</a>
+                <a href="https://zkv549gmz8.feishu.cn/share/base/form/shrcnQRBNhLNtVBWSClmb9EKNyd" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center min-h-[40px]" data-key="nav-feedback">反馈</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <!-- 语言切换按钮 -->
+                <button id="lang-switch-btn" class="hidden md:flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 transition text-sm font-medium text-gray-600 hover:text-gray-900" title="切换语言 / Switch Language">
+                    <span id="lang-display">中</span>
+                </button>
+                <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center justify-center bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition text-sm min-h-[40px]">
+                    <span class="text-center" data-key="nav-chrome">免费添加至 Chrome</span>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 transition">
+                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200">
+            <nav class="flex flex-col space-y-3 pt-4">
+                <a href="/" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]" data-key="nav-overview">概览</a>
+                <a href="/welcome.html" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]" data-key="nav-guide">入门指南</a>
+                <a href="/updates.html" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]" data-key="nav-updates">更新日志</a>
+                <a href="https://zkv549gmz8.feishu.cn/share/base/form/shrcnQRBNhLNtVBWSClmb9EKNyd" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px]" data-key="nav-feedback">反馈</a>
+                <!-- 移动端语言切换按钮 -->
+                <button id="lang-switch-btn-mobile" class="text-gray-600 hover:text-gray-900 transition flex items-center justify-center py-3 px-4 rounded-lg hover:bg-gray-50 min-h-[48px] border border-gray-300" title="切换语言 / Switch Language">
+                    <span class="flex items-center gap-2">
+                        <span>🌐</span>
+                        <span id="lang-display-mobile">中文</span>
+                    </span>
+                </button>
+                <a href="https://chromewebstore.google.com/detail/memnnheiikbfdcobfkghhfihnegkfici" target="_blank" rel="noopener noreferrer" class="bg-gray-900 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-lg transition text-sm min-h-[48px] flex items-center justify-center">
+                    <span data-key="nav-chrome-mobile">免费添加至 Chrome</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>

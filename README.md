@@ -6,6 +6,11 @@
 
 ```
 ├── index.html          # 主页面文件
+├── welcome.html        # 欢迎页面
+├── updates.html        # 更新日志页面
+├── components/         # 组件文件夹
+│   ├── navbar.html     # 统一导航栏组件
+│   └── footer.html     # 统一页脚组件
 └── resource/           # 资源文件夹
     ├── icons/          # 图标文件
     │   ├── chrome_icon.png
@@ -37,6 +42,8 @@
 - 🎬 视频演示功能
 - ⚡ 快速加载
 - 🔍 SEO 优化
+- 🧩 组件化架构，统一导航栏和页脚
+- 🌍 多语言支持（中文/英文）
 
 ## 本地开发
 

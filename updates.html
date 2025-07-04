@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth" data-lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="Chat Memo 更新日志 - 产品功能更新与改进记录" data-en="Chat Memo Updates - Product Feature Updates and Improvement Records">Chat Memo 更新日志 - 产品功能更新与改进记录</title>
+    <meta name="description" content="Chat Memo 产品更新日志，记录所有功能更新、改进和修复。了解最新的AI对话管理工具功能和优化。" data-zh="Chat Memo 产品更新日志，记录所有功能更新、改进和修复。了解最新的AI对话管理工具功能和优化。" data-en="Chat Memo product update log, recording all feature updates, improvements and fixes. Learn about the latest AI conversation management tool features and optimizations.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="Chat Memo, chatmemo, 更新日志, 版本更新, 功能更新, 产品改进, AI对话管理, ChatGPT工具更新, 新功能发布">
+    <meta name="author" content="一泽Eze">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chatmemo.ai/updates">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chatmemo.ai/updates">
+    <meta property="og:title" content="Chat Memo 更新日志 - 产品功能更新与改进记录">
+    <meta property="og:description" content="Chat Memo 产品更新日志，记录所有功能更新、改进和修复。了解最新的AI对话管理工具功能和优化。">
+    <meta property="og:image" content="https://chatmemo.ai/resource/icons/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://chatmemo.ai/updates">
+    <meta property="twitter:title" content="Chat Memo 更新日志 - 产品功能更新与改进记录">
+    <meta property="twitter:description" content="Chat Memo 产品更新日志，记录所有功能更新、改进和修复。了解最新的AI对话管理工具功能和优化。">
+    <meta property="twitter:image" content="https://chatmemo.ai/resource/icons/logo.png">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="resource/icons/logo.png">
+    <link rel="shortcut icon" type="image/png" href="resource/icons/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="resource/icons/logo.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4C06BSVNL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C4C06BSVNL');
+        
+        // 页面访问追踪
+        gtag('event', 'page_view', {
+            'page_title': 'Updates Page',
+            'page_location': window.location.href
+        });
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: #ffffff;
+            color: #37352f;
+            line-height: 1.6;
+            letter-spacing: -0.003em;
+        }
+        
+        /* 自定义滚动条样式 - 更细更现代 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(55, 53, 47, 0.16);
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(55, 53, 47, 0.24);
+        }
+        
+        /* 现代化的时间线样式 */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        /* 更新卡片样式 - 与首页配方卡片保持一致 */
+        .update-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.2s ease-in-out;
+            box-shadow: none;
+        }
+        
+        .update-card:hover {
+            transform: translateY(-0.25rem);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #93c5fd;
+        }
+        
+        /* 标签样式 - 提高饱和度 */
+        .tag-new {
+            background: rgba(0, 200, 150, 0.15);
+            color: #00c896;
+            border: 1px solid rgba(0, 200, 150, 0.3);
+        }
+        
+        .tag-improvement {
+            background: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .tag-fix {
+            background: rgba(251, 146, 60, 0.15);
+            color: #fb923c;
+            border: 1px solid rgba(251, 146, 60, 0.3);
+        }
+        
+        /* 分组标题文本颜色 */
+        .text-new {
+            color: #00c896;
+        }
+        
+        .text-improvement {
+            color: #3b82f6;
+        }
+        
+        .text-fix {
+            color: #fb923c;
+        }
+        
+        /* 分组容器样式 */
+        .feature-group {
+            background: rgba(248, 250, 252, 0.6);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .feature-group:hover {
+            background: rgba(248, 250, 252, 0.9);
+            border-color: rgba(203, 213, 225, 0.9);
+        }
+        
+        /* 分组标题样式 */
+        .group-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(226, 232, 240, 0.6);
+        }
+        
+        /* 功能项样式优化 */
+        .feature-item {
+            background: white;
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            transition: all 0.15s ease-in-out;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-color: rgba(203, 213, 225, 0.8);
+        }
+        
+        /* 图标样式 */
+        .group-icon {
+            font-size: 1.25rem;
+            margin-right: 0.5rem;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+        }
+        
+        /* 加载动画 - 更柔和 */
+        .loading-skeleton {
+            background: linear-gradient(90deg, rgba(55, 53, 47, 0.06) 25%, rgba(55, 53, 47, 0.12) 50%, rgba(55, 53, 47, 0.06) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 6px;
+        }
+        
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        /* 页面标题样式优化 */
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #37352f;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: rgba(55, 53, 47, 0.65);
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+        
+        /* 版本标题样式 */
+        .version-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #37352f;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* 功能描述样式 */
+        .feature-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #37352f;
+            margin-bottom: 0.25rem;
+        }
+        
+        .feature-description {
+            font-size: 0.875rem;
+            color: rgba(55, 53, 47, 0.65);
+            line-height: 1.5;
+        }
+        
+        /* 日期样式 */
+        .update-date {
+            font-size: 0.875rem;
+            color: rgba(55, 53, 47, 0.45);
+            font-weight: 400;
+        }
+        
+        /* 容器最大宽度优化 */
+        .content-container {
+            max-width: 768px;
+            margin: 0 auto;
+        }
+        
+        /* 英雄区动画样式 */
+        .hero-section {
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: top center;
+        }
+        
+        .hero-section.collapsed {
+            min-height: 300px !important;
+            max-height: 300px !important;
+            padding: 90px 0 30px 0 !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        
+        .hero-content {
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-content.collapsed {
+            transform: scale(0.8);
+        }
+        
+        /* 更新内容区域动画 */
+        .updates-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: 0.3s;
+        }
+        
+        .updates-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 禁用滚动样式 */
+        .no-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <!-- Header -->
+    <div id="navbar-container"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero-section" class="hero-section min-h-screen bg-white relative overflow-hidden flex items-center">
+            <!-- 高斯模糊Logo背景 -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-15">
+                <img src="resource/icons/logo.png" alt="Chat Memo Logo" class="w-96 h-96 object-contain filter blur-3xl scale-150">
+            </div>
+            <div id="hero-content" class="hero-content container mx-auto px-6 text-center content-container relative z-10">
+                <h1 class="page-title" data-key="updates-title">
+                    Chat Memo Updates
+                </h1>
+                <p class="page-subtitle max-w-2xl mx-auto" data-key="updates-subtitle">
+                    Track every improvement of Chat Memo and witness how we continuously enhance user experience
+                </p>
+                <div class="flex justify-center items-center space-x-6 text-sm">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 rounded-full" style="background-color: #00c896;"></div>
+                        <span class="text-gray-600" data-key="tag-new">New Features</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 rounded-full" style="background-color: #3b82f6;"></div>
+                        <span class="text-gray-600" data-key="tag-improvement">Improvements</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 rounded-full" style="background-color: #fb923c;"></div>
+                        <span class="text-gray-600" data-key="tag-fix">Bug Fixes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Updates Timeline -->
+        <section id="updates-section" class="updates-section py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="content-container">
+                    <!-- 加载状态 -->
+                    <div id="loading-state" class="space-y-8">
+                        <div class="loading-skeleton h-32 rounded-xl"></div>
+                        <div class="loading-skeleton h-24 rounded-xl"></div>
+                        <div class="loading-skeleton h-28 rounded-xl"></div>
+                    </div>
+                    
+                    <!-- 更新内容容器 -->
+                    <div id="updates-container" class="hidden space-y-8">
+                        <!-- 更新内容将通过 JavaScript 动态加载 -->
+                    </div>
+                    
+                    <!-- 错误状态 -->
+                    <div id="error-state" class="hidden text-center py-16">
+                        <div class="text-gray-400 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2" data-key="loading-failed">加载失败</h3>
+                        <p class="text-gray-500 mb-4" data-key="loading-failed-desc">无法加载更新内容，请稍后重试</p>
+                        <button onclick="loadUpdates()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition" data-key="reload-btn">
+                            重新加载
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script>
+        // 语言切换功能
+        const translations = {
+            'zh-CN': {
+                // 导航
+                'nav-overview': '概览',
+                'nav-guide': '入门指南',
+                'nav-updates': '更新日志',
+                'nav-feedback': '反馈',
+                'nav-chrome': '免费添加至 Chrome',
+                'nav-chrome-mobile': '免费添加至 Chrome',
+                
+                // 更新日志页面
+                'updates-title': 'Chat Memo 更新日志',
+                'updates-subtitle': '记录 Chat Memo 的每一次进步，见证我们如何持续改进用户体验',
+                'tag-new': '新功能',
+                'tag-improvement': '功能改进', 
+                'tag-fix': '问题修复',
+                'loading-failed': '加载失败',
+                'loading-failed-desc': '无法加载更新内容，请稍后重试',
+                'reload-btn': '重新加载',
+                'no-updates': '暂无更新内容',
+                'no-updates-desc': '更新记录正在准备中，敬请期待...',
+                
+                // 页脚
+                'footer-copyright': '© 2025 Chat Memo by 一泽Eze. All rights reserved.',
+                'footer-chrome': 'Chrome 插件',
+                'footer-guide': '使用指南',
+                'footer-feedback': '反馈建议',
+                'footer-privacy': '隐私政策',
+            },
+            'en': {
+                // Navigation
+                'nav-overview': 'Overview',
+                'nav-guide': 'Getting Started',
+                'nav-updates': 'Updates',
+                'nav-feedback': 'Feedback',
+                'nav-chrome': 'Add to Chrome for Free',
+                'nav-chrome-mobile': 'Add to Chrome for Free',
+                
+                // Updates page
+                'updates-title': 'Chat Memo Updates',
+                'updates-subtitle': 'Track every improvement of Chat Memo and witness how we continuously enhance user experience',
+                'tag-new': 'New Feature',
+                'tag-improvement': 'Improvement',
+                'tag-fix': 'Bug Fix',
+                'loading-failed': 'Loading Failed',
+                'loading-failed-desc': 'Unable to load update content, please try again later',
+                'reload-btn': 'Reload',
+                'no-updates': 'No Updates Available',
+                'no-updates-desc': 'Update records are being prepared, stay tuned...',
+                
+                // Footer
+                'footer-copyright': '© 2025 Chat Memo by Eze. All rights reserved.',
+                'footer-chrome': 'Chrome Extension',
+                'footer-guide': 'User Guide',
+                'footer-feedback': 'Feedback',
+                'footer-privacy': 'Privacy Policy',
+            }
+        };
+        
+        // 语言检测函数
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            return browserLang.startsWith('zh') ? 'zh-CN' : 'en';
+        }
+        
+        // 应用翻译
+        function applyTranslations(lang) {
+            const langAttr = lang === 'zh-CN' ? 'zh' : 'en';
+            
+            // 更新HTML lang属性
+            document.documentElement.setAttribute('lang', lang === 'zh-CN' ? 'zh-CN' : 'en');
+            document.documentElement.setAttribute('data-lang', lang === 'zh-CN' ? 'zh' : 'en');
+            
+            // 更新页面标题
+            const title = document.querySelector('title');
+            const description = document.querySelector('meta[name="description"]');
+            
+            if (title) {
+                title.textContent = title.getAttribute(`data-${langAttr}`);
+            }
+            if (description) {
+                description.setAttribute('content', description.getAttribute(`data-${langAttr}`));
+            }
+            
+            // 更新所有带有data-key属性的元素
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // 更新语言切换按钮显示
+            const langDisplay = document.getElementById('lang-display');
+            const langDisplayMobile = document.getElementById('lang-display-mobile');
+            
+            if (langDisplay) {
+                langDisplay.textContent = lang === 'zh-CN' ? '中' : 'EN';
+            }
+            
+            if (langDisplayMobile) {
+                langDisplayMobile.textContent = lang === 'zh-CN' ? '中文' : 'English';
+            }
+        }
+        
+        // 动态加载更新数据
+        async function loadUpdates() {
+            const loadingState = document.getElementById('loading-state');
+            const updatesContainer = document.getElementById('updates-container');
+            const errorState = document.getElementById('error-state');
+            
+            // 显示加载状态
+            loadingState.classList.remove('hidden');
+            updatesContainer.classList.add('hidden');
+            errorState.classList.add('hidden');
+            
+            try {
+                const response = await fetch('updates-data.json');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch updates');
+                }
+                
+                const data = await response.json();
+                renderUpdates(data.updates);
+                
+                // 显示内容，隐藏加载状态
+                loadingState.classList.add('hidden');
+                updatesContainer.classList.remove('hidden');
+                
+            } catch (error) {
+                console.error('加载更新数据失败:', error);
+                // 如果加载失败，显示默认内容
+                renderDefaultUpdates();
+                
+                // 显示内容，隐藏加载状态
+                loadingState.classList.add('hidden');
+                updatesContainer.classList.remove('hidden');
+            }
+        }
+
+        function renderUpdates(updates) {
+            const container = document.getElementById('updates-container');
+            container.innerHTML = '';
+
+            updates.forEach((update, index) => {
+                const updateElement = createUpdateElement(update, index, updates.length);
+                container.appendChild(updateElement);
+            });
+        }
+
+        function createUpdateElement(update, index, totalUpdates) {
+            const updateDiv = document.createElement('div');
+            updateDiv.className = 'timeline-item';
+            
+            const currentLang = localStorage.getItem('chat-memo-lang') || detectLanguage();
+            const typeConfig = {
+                'new': { 
+                    color: 'tag-new', 
+                    icon: '🚀', 
+                    label: currentLang === 'zh-CN' ? '新功能' : 'New Features'
+                },
+                'improvement': { 
+                    color: 'tag-improvement', 
+                    icon: '✨', 
+                    label: currentLang === 'zh-CN' ? '功能优化' : 'Improvements'
+                },
+                'fix': { 
+                    color: 'tag-fix', 
+                    icon: '🔧', 
+                    label: currentLang === 'zh-CN' ? '问题修复' : 'Bug Fixes'
+                }
+            };
+            
+            // 获取当前语言的数据
+            const getLocalizedText = (textObj) => {
+                if (typeof textObj === 'string') return textObj; // 兼容旧格式
+                return textObj[currentLang] || textObj['zh-CN'] || textObj['en'] || '';
+            };
+            
+            // 按类型分组功能
+            const groupedFeatures = {
+                'new': [],
+                'improvement': [],
+                'fix': []
+            };
+            
+            update.features.forEach(feature => {
+                if (groupedFeatures[feature.type]) {
+                    groupedFeatures[feature.type].push(feature);
+                }
+            });
+            
+            // 生成分组的功能列表
+            let groupsHtml = '';
+            Object.keys(groupedFeatures).forEach(type => {
+                if (groupedFeatures[type].length > 0) {
+                    const config = typeConfig[type];
+                    const featuresInGroup = groupedFeatures[type].map(feature => `
+                        <div class="feature-item">
+                            <h4 class="feature-title">${getLocalizedText(feature.title)}</h4>
+                            <p class="feature-description">${getLocalizedText(feature.description)}</p>
+                        </div>
+                    `).join('');
+                    
+                    groupsHtml += `
+                        <div class="feature-group mb-6">
+                            <div class="flex items-center group-title">
+                                <span class="group-icon">${config.icon}</span>
+                                <h3 class="${config.color.replace('tag-', 'text-')}">${config.label}</h3>
+                            </div>
+                            <div class="space-y-3">
+                                ${featuresInGroup}
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            
+            updateDiv.innerHTML = `
+                <div class="update-card">
+                    <!-- 版本头部 -->
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex-1">
+                            <h2 class="version-title">
+                                ${update.version}
+                            </h2>
+                            <p class="page-subtitle mb-0">${getLocalizedText(update.summary)}</p>
+                        </div>
+                        <div class="flex-shrink-0 ml-4">
+                            <span class="update-date">${getLocalizedText(update.date)}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 分组功能列表 -->
+                    <div class="space-y-5">
+                        ${groupsHtml}
+                    </div>
+                </div>
+            `;
+            
+            return updateDiv;
+        }
+
+        function renderDefaultUpdates() {
+            // 如果无法加载 JSON 数据，显示默认内容
+            const container = document.getElementById('updates-container');
+            container.innerHTML = `
+                <div class="text-center py-16">
+                    <div class="text-6xl mb-4">📝</div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2" data-key="no-updates">No Updates Available</h3>
+                    <p class="text-gray-500" data-key="no-updates-desc">Update records are being prepared, please stay tuned...</p>
+                </div>
+            `;
+            
+            // 应用当前语言的翻译
+            const currentLang = localStorage.getItem('chat-memo-lang') || detectLanguage();
+            applyTranslations(currentLang);
+        }
+
+        // 加载导航组件
+        async function loadNavbar() {
+            try {
+                const response = await fetch('components/navbar.html');
+                const navbarHTML = await response.text();
+                document.getElementById('navbar-container').innerHTML = navbarHTML;
+            } catch (error) {
+                console.error('Failed to load navbar:', error);
+            }
+        }
+        
+        // 加载footer组件
+        async function loadFooter() {
+            try {
+                const response = await fetch('components/footer.html');
+                const footerHTML = await response.text();
+                document.getElementById('footer-container').innerHTML = footerHTML;
+            } catch (error) {
+                console.error('Failed to load footer:', error);
+            }
+        }
+        
+        // 英雄区动画函数
+        function startHeroAnimation() {
+            // 页面加载时立即禁用滚动
+            document.body.classList.add('no-scroll');
+            
+            // 延迟2秒后开始动画，让用户先看到完整的英雄区
+            setTimeout(() => {
+                const heroSection = document.getElementById('hero-section');
+                const heroContent = document.getElementById('hero-content');
+                const updatesSection = document.getElementById('updates-section');
+                
+                // 添加收缩样式
+                heroSection.classList.add('collapsed');
+                heroContent.classList.add('collapsed');
+                
+                // 延迟显示更新内容，让英雄区动画先完成一部分
+                setTimeout(() => {
+                    updatesSection.classList.add('visible');
+                    
+                    // 动画完全完成后重新启用滚动
+                    // 等待updates-section的动画完成（1s + 0.3s delay = 1.3s）
+                    setTimeout(() => {
+                        document.body.classList.remove('no-scroll');
+                    }, 1300);
+                }, 600);
+                
+            }, 2000);
+        }
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', async function() {
+            // 重置滚动位置到顶部，不记忆用户之前的滚动位置
+            window.scrollTo(0, 0);
+            
+            // 加载导航组件
+            await loadNavbar();
+            // 加载footer组件
+            await loadFooter();
+            
+            // 初始化语言
+            const savedLang = localStorage.getItem('chat-memo-lang');
+            const currentLang = savedLang || detectLanguage();
+            
+            // 应用翻译
+            applyTranslations(currentLang);
+            
+            // 添加语言切换事件监听器
+            const langSwitchBtn = document.getElementById('lang-switch-btn');
+            const langSwitchBtnMobile = document.getElementById('lang-switch-btn-mobile');
+            
+            function handleLangSwitch() {
+                const currentLang = localStorage.getItem('chat-memo-lang') || detectLanguage();
+                const newLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
+                
+                applyTranslations(newLang);
+                localStorage.setItem('chat-memo-lang', newLang);
+                
+                // 重新渲染更新内容以应用新语言
+                loadUpdates();
+            }
+            
+            if (langSwitchBtn) {
+                langSwitchBtn.addEventListener('click', handleLangSwitch);
+            }
+            
+            if (langSwitchBtnMobile) {
+                langSwitchBtnMobile.addEventListener('click', handleLangSwitch);
+            }
+            
+            // 加载更新数据
+            await loadUpdates();
+            
+            // 确保所有内容加载完成后滚动位置仍在顶部
+            window.scrollTo(0, 0);
+            
+            // 启动英雄区动画
+            startHeroAnimation();
+        });
+        
+        // 页面完全加载后的额外保障
+        window.addEventListener('load', function() {
+            // 再次确保滚动位置在顶部
+            window.scrollTo(0, 0);
+        });
+    </script>
+
+</body>
+</html>
