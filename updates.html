@@ -651,7 +651,7 @@
             // 页面加载时立即禁用滚动
             document.body.classList.add('no-scroll');
             
-            // 延迟2秒后开始动画，让用户先看到完整的英雄区
+            // 延迟1.5秒后开始动画，让用户先看到完整的英雄区
             setTimeout(() => {
                 const heroSection = document.getElementById('hero-section');
                 const heroContent = document.getElementById('hero-content');
@@ -672,7 +672,7 @@
                     }, 1300);
                 }, 600);
                 
-            }, 2000);
+            }, 1500);
         }
         
         // 页面加载完成后执行
