@@ -615,8 +615,45 @@
                 const response = await fetch('components/navbar.html');
                 const navbarHTML = await response.text();
                 document.getElementById('navbar-container').innerHTML = navbarHTML;
+                // 导航栏加载完成后初始化移动端菜单
+                initMobileMenu();
             } catch (error) {
                 console.error('Failed to load navbar:', error);
+            }
+        }
+        
+        // 初始化移动端菜单
+        function initMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // 更新按钮图标
+                    const svg = mobileMenuButton.querySelector('svg');
+                    const path = svg.querySelector('path');
+                    
+                    if (mobileMenu.classList.contains('hidden')) {
+                        // 显示汉堡菜单图标
+                        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                    } else {
+                        // 显示关闭图标
+                        path.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                    }
+                });
+                
+                // 使用事件委托处理移动端导航链接点击
+                mobileMenu.addEventListener('click', function(e) {
+                    const link = e.target.closest('a');
+                    if (link) {
+                        mobileMenu.classList.add('hidden');
+                        const svg = mobileMenuButton.querySelector('svg');
+                        const path = svg.querySelector('path');
+                        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                    }
+                });
             }
         }
         
