@@ -12,7 +12,7 @@
       },
       "features": [
         {
-          "type": "new",
+          "type": "improvement",
           "title": {
             "zh-CN": "列表直接编辑",
             "en": "Direct List Editing"
