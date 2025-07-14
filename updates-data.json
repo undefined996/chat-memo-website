@@ -1,6 +1,52 @@
 {
   "updates": [
     {
+      "version": "v1.0.9",
+      "date": {
+        "zh-CN": "2025年7月6日",
+        "en": "July 6, 2025"
+      },
+      "summary": {
+        "zh-CN": "优化了记录管理体验，现在可以直接在列表中修改标题，同时增强了数据持久化能力，让你的聊天记录更安全！",
+        "en": "Optimized record management experience. You can now edit titles directly in the list, and enhanced data persistence to keep your chat records safer!"
+      },
+      "features": [
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "列表直接编辑",
+            "en": "Direct List Editing"
+          },
+          "description": {
+            "zh-CN": "现在可以在记录列表上直接修改标题了",
+            "en": "You can now edit titles directly in the record list"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "交互优化",
+            "en": "Interaction Optimization"
+          },
+          "description": {
+            "zh-CN": "优化了记录卡片和详情页的交互",
+            "en": "Optimized interactions for record cards and detail pages"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "数据持久化增强",
+            "en": "Enhanced Data Persistence"
+          },
+          "description": {
+            "zh-CN": "数据持久化增强: 防止数据被浏览器自动清理",
+            "en": "Enhanced data persistence: prevents data from being automatically cleared by the browser"
+          }
+        }
+      ]
+    },
+    {
       "version": "v1.0.8",
       "date": {
         "zh-CN": "2025年7月3日",
