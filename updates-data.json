@@ -1,6 +1,74 @@
 {
   "updates": [
     {
+      "version": "v1.0.10",
+      "date": {
+        "zh-CN": "2025年7月24日",
+        "en": "July 24, 2025"
+      },
+      "summary": {
+        "zh-CN": "新增筛选与多选导出功能，优化悬浮标签体验，并解决了多个重要问题，提升插件稳定性和国际化支持！",
+        "en": "Added filtering and multi-select export features, optimized floating tag experience, and resolved several important issues to improve plugin stability and internationalization support!"
+      },
+      "features": [
+        {
+          "type": "new",
+          "title": {
+            "zh-CN": "筛选与多选导出功能",
+            "en": "Filtering and Multi-select Export Feature"
+          },
+          "description": {
+            "zh-CN": "现在可以按平台、时间范围筛选对话；并且按需多选对话导出",
+            "en": "Now you can filter conversations by platform and time range; and multi-select conversations for export as needed"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "悬浮标签贴边隐藏",
+            "en": "Floating Tag Edge Auto-hide"
+          },
+          "description": {
+            "zh-CN": "当拖拽悬浮标签接近屏幕边缘时，会显示视觉引导提示，松手后标签会贴边半隐藏",
+            "en": "When dragging the floating tag near screen edges, visual guidance prompts appear, and the tag will semi-hide at the edge after release"
+          }
+        },
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "界面显示稳定性提升",
+            "en": "UI Display Stability Fix"
+          },
+          "description": {
+            "zh-CN": "解决图标在国际网络环境较差时无法显示的问题，提升插件稳定性",
+            "en": "Fixed icon display issues in poor international network environments, improving plugin stability"
+          }
+        },
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "导出文件名乱码修复",
+            "en": "Export Filename Encoding Fix"
+          },
+          "description": {
+            "zh-CN": "扩展导出文件的字符支持，新增日文平假名、片假名、韩文字符支持，修复日文用户导出 zip 文件时的文件名乱码问题",
+            "en": "Extended character support for exported files, added support for Japanese Hiragana, Katakana, and Korean characters, fixed filename encoding issues when Japanese users export zip files"
+          }
+        },
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "手动保存模式优化",
+            "en": "Manual Save Mode Fix"
+          },
+          "description": {
+            "zh-CN": "避免手动保存模式下，刷新页面会触发自动保存",
+            "en": "Prevent automatic saving from being triggered when refreshing the page in manual save mode"
+          }
+        }
+      ]
+    },
+    {
       "version": "v1.0.9",
       "date": {
         "zh-CN": "2025年7月6日",
