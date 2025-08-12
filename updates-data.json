@@ -1,6 +1,63 @@
 {
   "updates": [
     {
+      "version": "v1.1.0",
+      "date": {
+        "zh-CN": "2025年1月15日",
+        "en": "January 15, 2025"
+      },
+      "summary": {
+        "zh-CN": "新增豆包、Claude平台支持，长消息收折显示优化阅读体验，同时修复导出和对话时间相关问题",
+        "en": "Added support for Doubao and Claude platforms, optimized reading experience with long message collapsing, and fixed export and conversation timing issues"
+      },
+      "features": [
+        {
+          "type": "new",
+          "title": {
+            "zh-CN": "我们支持新的 AI 平台啦",
+            "en": "We support new AI platforms"
+          },
+          "description": {
+            "zh-CN": "现在在豆包、Claude两个主流 AI 平台，也能自动保存对话记录了",
+            "en": "Now you can automatically save conversation records in Doubao and Claude, two mainstream AI platforms"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "长消息收折显示，优化阅读体验",
+            "en": "Long Message Collapsing, Optimized Reading Experience"
+          },
+          "description": {
+            "zh-CN": "在详情页中，过长的对话将会收折显示，优化阅读体验和页面性能",
+            "en": "Long conversations in detail pages will be collapsed for better reading experience and page performance"
+          }
+        },
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "优化导出功能",
+            "en": "Export Feature Optimization"
+          },
+          "description": {
+            "zh-CN": "优化导出相关的样式与国际化问题，提升用户体验",
+            "en": "Optimized export-related styling and internationalization issues for better user experience"
+          }
+        },
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "对话时间戳修复",
+            "en": "Conversation Timestamp Fix"
+          },
+          "description": {
+            "zh-CN": "修复重进已保存对话的源网页会导致最近对话时间变更的问题",
+            "en": "Fixed issue where re-entering saved conversation source pages would change recent conversation timestamps"
+          }
+        }
+      ]
+    },
+    {
       "version": "v1.0.10",
       "date": {
         "zh-CN": "2025年7月24日",
