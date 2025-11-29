@@ -1,6 +1,52 @@
 {
   "updates": [
     {
+      "version": "v1.1.2",
+      "date": {
+        "zh-CN": "2025年11月29日",
+        "en": "November 29, 2025"
+      },
+      "summary": {
+        "zh-CN": "新增 Kimi 平台支持，修复豆包平台问题，大幅提升浏览器兼容性，让你在任何浏览器中都能流畅使用！",
+        "en": "Added Kimi platform support, fixed Doubao platform issues, and greatly improved browser compatibility for seamless use in any browser!"
+      },
+      "features": [
+        {
+          "type": "new",
+          "title": {
+            "zh-CN": "新 AI 对话平台支持",
+            "en": "New AI Platform Support"
+          },
+          "description": {
+            "zh-CN": "新增支持 Kimi 平台，现在可以自动保存 Kimi 的对话记录了",
+            "en": "Added support for Kimi platform, now you can automatically save Kimi conversation records"
+          }
+        },
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "豆包平台修复",
+            "en": "Doubao Platform Fix"
+          },
+          "description": {
+            "zh-CN": "修复了豆包平台消息保存失败的问题，确保所有对话都能可靠保存",
+            "en": "Fixed message saving failure issue on Doubao platform, ensuring all conversations are reliably saved"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "浏览器兼容性大优化",
+            "en": "Major Browser Compatibility Improvement"
+          },
+          "description": {
+            "zh-CN": "兼容性大优化：现在 Dia、夸克等任何浏览器中，都能正常打开本扩展的界面了",
+            "en": "Major compatibility optimization: Now the extension interface works properly in any browser including Dia, Quark, and more"
+          }
+        }
+      ]
+    },
+    {
       "version": "v1.1.0",
       "date": {
         "zh-CN": "2025年8月12日",
