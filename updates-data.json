@@ -1,6 +1,63 @@
 {
   "updates": [
     {
+      "version": "v1.2.0",
+      "date": {
+        "zh-CN": "2025年12月25日",
+        "en": "December 25, 2025"
+      },
+      "summary": {
+        "zh-CN": "圣诞惊喜！新增 Kimi 平台支持，悬浮标签全新视觉升级，浏览器兼容性大幅提升，还有智能引导功能带你轻松上手～",
+        "en": "Christmas surprise! Added Kimi platform support, floating tag visual upgrade, major browser compatibility improvements, plus smart guidance to help you get started!"
+      },
+      "features": [
+        {
+          "type": "new",
+          "title": {
+            "zh-CN": "新增 Kimi 平台支持",
+            "en": "Kimi Platform Support"
+          },
+          "description": {
+            "zh-CN": "现在可以自动保存 Kimi 的对话记录了，AI 对话平台支持更全面",
+            "en": "Now you can automatically save Kimi conversation records, with more comprehensive AI platform support"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "悬浮标签全新设计",
+            "en": "Floating Tag Redesigned"
+          },
+          "description": {
+            "zh-CN": "重新设计悬浮标签视觉效果，更加精致美观，交互体验更流畅自然",
+            "en": "Redesigned floating tag visuals for a more refined look and smoother interaction experience"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "浏览器兼容性大优化",
+            "en": "Major Browser Compatibility Improvement"
+          },
+          "description": {
+            "zh-CN": "现在 Dia、夸克等任何浏览器中，都能正常打开本扩展的界面了",
+            "en": "Now the extension interface works properly in any browser including Dia, Quark, and more"
+          }
+        },
+        {
+          "type": "new",
+          "title": {
+            "zh-CN": "智能使用引导",
+            "en": "Smart Usage Guide"
+          },
+          "description": {
+            "zh-CN": "在 Chrome、Edge 浏览器内部页面点击扩展时，显示品牌化引导弹窗，告诉你如何正确使用",
+            "en": "When clicking the extension on browser internal pages, a branded guide popup appears to help you get started"
+          }
+        }
+      ]
+    },
+    {
       "version": "v1.1.2",
       "date": {
         "zh-CN": "2025年11月29日",
