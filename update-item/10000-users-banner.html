@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Memo - 10000+ Users</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+
+        :root {
+            --primary-purple: #5A4CFF;
+            --primary-blue: #3B45C4;
+            --accent-gold: #F5A623;
+            --text-main: #1A1A1A;
+            --text-sub: #5A5A5A;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #e0e5ec;
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .banner {
+            position: relative;
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(160deg, #ffffff 0%, #f4f6ff 100%);
+            box-shadow: 0 20px 60px rgba(59, 69, 196, 0.12);
+        }
+
+        /* 背景装饰 - 柔和光晕 */
+        .bg-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+        }
+
+        .bg-glow-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(107, 91, 255, 0.1);
+            top: -150px;
+            right: -100px;
+        }
+
+        .bg-glow-2 {
+            width: 350px;
+            height: 350px;
+            background: rgba(245, 166, 35, 0.06);
+            bottom: -100px;
+            left: 150px;
+        }
+
+        /* 主内容区 - 左右分布 */
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 100px;
+        }
+
+        /* 左侧 - 核心数据 */
+        .left-section {
+            flex: 0 0 55%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 60px;
+            position: relative;
+        }
+
+        .number-row {
+            display: flex;
+            align-items: baseline;
+            position: relative;
+        }
+
+        .big-number {
+            font-size: 160px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #3B45C4 0%, #6B5BFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: -6px;
+            padding-bottom: 10px;
+        }
+
+        .plus-sign {
+            font-size: 80px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-left: 8px;
+            line-height: 1;
+        }
+
+        .label-users {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 16px;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        /* 右侧 - 品牌与文案 */
+        .right-section {
+            flex: 0 0 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 60px;
+            border-left: 1px solid rgba(59, 69, 196, 0.12);
+        }
+
+        .logo-area {
+            margin-bottom: 36px;
+        }
+
+        .logo-img {
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .message {
+            margin-bottom: 40px;
+        }
+
+        .message h2 {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+
+        .message p {
+            font-size: 17px;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        .website {
+            font-size: 15px;
+            color: var(--primary-blue);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            opacity: 0.6;
+        }
+
+        /* ===== 庆祝装饰元素 ===== */
+
+        /* 彩带/纸屑 */
+        .confetti {
+            position: absolute;
+            pointer-events: none;
+            animation: confetti-fall 3s ease-in-out infinite;
+        }
+
+        .confetti-1 { left: 80px; top: 120px; width: 12px; height: 12px; background: var(--accent-gold); transform: rotate(45deg); }
+        .confetti-2 { left: 180px; top: 80px; width: 8px; height: 8px; background: #FF6B6B; border-radius: 50%; animation-delay: 0.3s; }
+        .confetti-3 { left: 320px; top: 100px; width: 10px; height: 10px; background: var(--primary-purple); transform: rotate(30deg); animation-delay: 0.6s; }
+        .confetti-4 { left: 450px; top: 70px; width: 6px; height: 14px; background: #00D4AA; transform: rotate(-20deg); animation-delay: 0.2s; }
+        .confetti-5 { left: 120px; top: 480px; width: 10px; height: 10px; background: var(--primary-blue); transform: rotate(60deg); animation-delay: 0.8s; }
+        .confetti-6 { left: 280px; top: 520px; width: 8px; height: 8px; background: var(--accent-gold); border-radius: 50%; animation-delay: 0.4s; }
+        .confetti-7 { left: 420px; top: 500px; width: 12px; height: 6px; background: #FF6B6B; transform: rotate(-45deg); animation-delay: 1s; }
+
+        /* 右侧彩带 */
+        .confetti-8 { right: 120px; top: 100px; width: 8px; height: 8px; background: var(--accent-gold); transform: rotate(15deg); animation-delay: 0.5s; }
+        .confetti-9 { right: 80px; top: 180px; width: 10px; height: 10px; background: var(--primary-purple); border-radius: 50%; animation-delay: 0.7s; }
+        .confetti-10 { right: 150px; bottom: 120px; width: 6px; height: 12px; background: #00D4AA; transform: rotate(30deg); animation-delay: 0.9s; }
+        .confetti-11 { right: 60px; bottom: 180px; width: 10px; height: 10px; background: #FF6B6B; transform: rotate(-30deg); animation-delay: 0.2s; }
+
+        @keyframes confetti-fall {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+            50% { transform: translateY(12px) rotate(180deg); opacity: 1; }
+        }
+
+        /* 星星装饰 - 围绕数字 */
+        .star {
+            position: absolute;
+            color: var(--accent-gold);
+            animation: twinkle 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .star-1 { left: 60px; top: 200px; font-size: 20px; }
+        .star-2 { left: 160px; top: 150px; font-size: 16px; animation-delay: 0.5s; }
+        .star-3 { left: 480px; top: 180px; font-size: 18px; animation-delay: 1s; }
+        .star-4 { left: 100px; top: 420px; font-size: 14px; animation-delay: 0.3s; }
+        .star-5 { left: 400px; top: 450px; font-size: 16px; animation-delay: 0.8s; }
+        .star-6 { right: 200px; top: 250px; font-size: 14px; animation-delay: 0.6s; }
+        .star-7 { right: 100px; bottom: 250px; font-size: 18px; animation-delay: 1.2s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* 数字周围的光芒效果 */
+        .glow-ring {
+            position: absolute;
+            left: 200px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(107, 91, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* 庆祝徽章 */
+        .celebration-badge {
+            position: absolute;
+            left: 440px;
+            top: 160px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #FFD700 100%);
+            color: #1A1A1A;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+            animation: badge-bounce 2s ease-in-out infinite;
+            z-index: 20;
+        }
+
+        @keyframes badge-bounce {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-5px) rotate(3deg); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <!-- 背景光晕 -->
+        <div class="bg-glow bg-glow-1"></div>
+        <div class="bg-glow bg-glow-2"></div>
+
+        <!-- 数字光芒 -->
+        <div class="glow-ring"></div>
+
+        <!-- 彩带纸屑 -->
+        <div class="confetti confetti-1"></div>
+        <div class="confetti confetti-2"></div>
+        <div class="confetti confetti-3"></div>
+        <div class="confetti confetti-4"></div>
+        <div class="confetti confetti-5"></div>
+        <div class="confetti confetti-6"></div>
+        <div class="confetti confetti-7"></div>
+        <div class="confetti confetti-8"></div>
+        <div class="confetti confetti-9"></div>
+        <div class="confetti confetti-10"></div>
+        <div class="confetti confetti-11"></div>
+
+        <!-- 星星 -->
+        <div class="star star-1">✦</div>
+        <div class="star star-2">✦</div>
+        <div class="star star-3">✦</div>
+        <div class="star star-4">✦</div>
+        <div class="star star-5">✦</div>
+        <div class="star star-6">✦</div>
+        <div class="star star-7">✦</div>
+
+        <!-- 庆祝徽章 -->
+        <div class="celebration-badge">MILESTONE</div>
+
+        <!-- 主内容 -->
+        <div class="content">
+            <!-- 左侧：核心数字 -->
+            <div class="left-section">
+                <div class="number-row">
+                    <span class="big-number">10,000</span>
+                    <span class="plus-sign">+</span>
+                </div>
+                <div class="label-users">Users</div>
+            </div>
+
+            <!-- 右侧：品牌与感谢 -->
+            <div class="right-section">
+                <div class="logo-area">
+                    <img src="logo.png" alt="Chat Memo" class="logo-img">
+                </div>
+                <div class="message">
+                    <h2>感谢每一位用户的<br>信任与陪伴</h2>
+                    <p>你们的 AI 记忆，我们用心守护</p>
+                </div>
+                <div class="website">chatmemo.ai</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
