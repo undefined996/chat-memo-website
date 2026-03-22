@@ -1,6 +1,63 @@
 {
   "updates": [
     {
+      "version": "v1.3.0",
+      "date": {
+        "zh-CN": "2026年3月22日",
+        "en": "March 22, 2026"
+      },
+      "summary": {
+        "zh-CN": "新增千问平台支持，修复 DeepSeek 和 Gemini 适配问题，数据加载更稳定可靠。",
+        "en": "Added Qwen platform support, fixed DeepSeek and Gemini adapter issues, improved data loading reliability."
+      },
+      "features": [
+        {
+          "type": "new",
+          "title": {
+            "zh-CN": "新增千问平台支持",
+            "en": "Qwen Platform Support"
+          },
+          "description": {
+            "zh-CN": "支持千问（Qwen）AI 对话平台的自动保存，使用稳定的语义化选择器确保长期兼容",
+            "en": "Support automatic saving for Qwen AI chat platform, using stable semantic selectors for long-term compatibility"
+          }
+        },
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "DeepSeek 适配修复",
+            "en": "DeepSeek Adapter Fix"
+          },
+          "description": {
+            "zh-CN": "修复 DeepSeek 页面结构更新导致的对话无法自动保存问题",
+            "en": "Fixed conversation auto-save failure caused by DeepSeek page structure update"
+          }
+        },
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "Gemini 适配修复",
+            "en": "Gemini Adapter Fix"
+          },
+          "description": {
+            "zh-CN": "修复 Gemini 中文环境下用户消息被多提取「你说」前缀的问题",
+            "en": "Fixed user messages in Gemini Chinese environment being prefixed with extra accessibility text"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "数据加载稳定性增强",
+            "en": "Data Loading Reliability Improvement"
+          },
+          "description": {
+            "zh-CN": "单条异常数据不再导致全部对话加载失败，异常对话会显示提示而非空白",
+            "en": "A single corrupted record no longer causes all conversations to fail loading; corrupted conversations show a warning instead of blank"
+          }
+        }
+      ]
+    },
+    {
       "version": "v1.2.0",
       "date": {
         "zh-CN": "2025年12月25日",
