@@ -1,6 +1,41 @@
 {
   "updates": [
     {
+      "version": "v1.3.1",
+      "date": {
+        "zh-CN": "2026年4月13日",
+        "en": "April 13, 2026"
+      },
+      "summary": {
+        "zh-CN": "修复豆包适配问题，并优化复制成功提示体验。",
+        "en": "Fixed Doubao adapter issues and improved copy success feedback."
+      },
+      "features": [
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "豆包适配器修复",
+            "en": "Doubao Adapter Fix"
+          },
+          "description": {
+            "zh-CN": "修复豆包平台前端更新移除 data-testid 属性后导致的对话无法保存问题，改用更稳定的业务语义属性重新适配",
+            "en": "Fixed conversation saving failures caused by Doubao removing the data-testid attribute in a frontend update by switching to more stable semantic business attributes"
+          }
+        },
+        {
+          "type": "improvement",
+          "title": {
+            "zh-CN": "复制体验优化",
+            "en": "Copy Experience Improvement"
+          },
+          "description": {
+            "zh-CN": "修复部分浏览器环境下复制对话后没有成功提示的问题",
+            "en": "Fixed missing success feedback after copying conversations in some browser environments"
+          }
+        }
+      ]
+    },
+    {
       "version": "v1.3.0",
       "date": {
         "zh-CN": "2026年3月22日",
