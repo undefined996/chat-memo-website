@@ -1,6 +1,30 @@
 {
   "updates": [
     {
+      "version": "v1.3.2",
+      "date": {
+        "zh-CN": "2026年6月16日",
+        "en": "June 16, 2026"
+      },
+      "summary": {
+        "zh-CN": "修复豆包 AI 回复无法同步的问题。",
+        "en": "Fixed an issue where Doubao AI replies could not be synced."
+      },
+      "features": [
+        {
+          "type": "fix",
+          "title": {
+            "zh-CN": "豆包 AI 回复同步修复",
+            "en": "Doubao AI Reply Sync Fix"
+          },
+          "description": {
+            "zh-CN": "豆包前端调整了 AI 回复的页面结构，导致只能同步用户消息、AI 回复丢失。已重新适配，AI 回复恢复正常保存。",
+            "en": "Doubao changed the page structure of AI replies, causing only user messages to sync while AI replies were lost. Re-adapted so AI replies save correctly again."
+          }
+        }
+      ]
+    },
+    {
       "version": "v1.3.1",
       "date": {
         "zh-CN": "2026年4月13日",
