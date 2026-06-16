@@ -1,6 +1,6 @@
 ---
 name: chatmemo-update
-description: This skill should be used when a user wants to create Chat Memo update release materials, specifically to generate an HTML poster and a markdown update description document for a new version release. Use this when a user says "发布新版本", "创建更新", "生成更新海报" or similar phrases, or provides version information and feature lists for a release.
+description: This skill should be used when a user wants to create Chat Memo update/release materials. Primary workflow is "单源扇出 (release fan-out)" — author one structured bilingual release entry and propagate it to ALL changelog locations (website updates-data.json, marketing poster, announcement markdown, the browser-extension CHANGELOG.md + manifest version, and GitHub/Chrome-Store release notes). Use when the user says "发布新版本", "创建更新", "生成更新海报", "发版", or provides version + feature list for a release.
 ---
 
 # Chat Memo Update Generator
@@ -18,6 +18,32 @@ The generated files follow the exact format and style of existing Chat Memo rele
 - Automatically creates output directory at `project-root/update-item/`
 - Automatically copies `logo-single.png` to ensure HTML poster displays correctly
 - Defaults to creating all files in the standardized location
+
+## 发版扇出（推荐主流程 · 单源多派生）
+
+发版文案是**唯一事实源**，多处更新日志是**派生**。一次确认文案，扇出到所有位置，避免在 N 个地方手写同一份日志。
+
+官网（chat-memo-website）与浏览器插件（开发/chat-memo_DEV）是**两个独立仓**；本流程用一份「发版文案 schema」作为两仓间的显式契约，由 `release_fanout.py` 跨仓桥接（一次工具动作，非结构耦合）。
+
+### 单一事实源：结构化双语条目
+
+schema 见 [`assets/release-entry.example.json`](./assets/release-entry.example.json)：`version`（不带 v）/ `date`/`summary`（双语）/ `poster`（海报标题+公告标题，中文营销）/ `features[]`（`type` = `new|improvement|fix`、`icon`、双语 `title`+`description`）。
+
+发版时由插件 `CHANGELOG.md` 的 `[Unreleased]` 草稿润色 + 补 en 翻译得到这份条目——**这是唯一一次"确认文案"**。
+
+### 扇出
+
+```bash
+# 先预览（强烈建议），确认无误再去掉 --dry-run 实际写入
+python3 scripts/release_fanout.py --entry path/to/release-entry.json --dry-run
+python3 scripts/release_fanout.py --entry path/to/release-entry.json
+```
+
+一次扇出到 6 处：① 官网 `updates-data.json`（prepend 双语条目）② 官网 `update-item/{ver}.html` 海报 ③ 官网 `update-item/{ver}-update.md` 公告 ④ 插件 `CHANGELOG.md`（`[Unreleased]` → `[ver]-日期`）⑤ 插件 `manifest.json` version ⑥ `update-item/{ver}-release-notes.txt`（GitHub Release / Chrome 商店"新功能"）。
+
+路径默认按脚本位置推断两仓；可用 `--website-root` / `--changelog` / `--manifest` 覆盖。海报/公告复用下方的 `generate_files.py`（未改动）。
+
+> 仅需海报+公告、不做全量发版时，仍可直接用下面的 `generate_files.py`（保留作为底层能力）。
 
 ## Core Capabilities
 
