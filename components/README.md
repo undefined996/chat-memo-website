@@ -27,7 +27,7 @@ async function loadFooter() {
         document.getElementById('footer-container').innerHTML = `
             <footer class="bg-white border-t border-gray-100">
                 <div class="container mx-auto px-6 py-8 text-center">
-                    <p class="text-xs text-gray-500">&copy; 2025 Chat Memo by 一泽Eze. All rights reserved.</p>
+                    <p class="text-xs text-gray-500">&copy; Chat Memo by 一泽Eze. All rights reserved.</p>
                 </div>
             </footer>
         `;
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 #### 左侧区域
 - **Logo**: Chat Memo 品牌标识
 - **产品名称**: Chat Memo
-- **版权信息**: © 2025 Chat Memo by 一泽Eze. All rights reserved.
+- **版权信息**: © Chat Memo by 一泽Eze. All rights reserved.
 
 #### 右侧区域
 - **导航链接**:

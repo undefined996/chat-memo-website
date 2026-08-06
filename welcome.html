@@ -574,7 +574,7 @@
                 'subscription-cta-button': '订阅更新与独家技巧',
                 
                 // Footer
-                'footer-copyright': '© 2025 Chat Memo by 一泽Eze. All rights reserved.',
+                'footer-copyright': '© Chat Memo by 一泽Eze. All rights reserved.',
                 'footer-chrome': 'Chrome 插件',
                 'footer-guide': '使用指南',
                 'footer-feedback': '反馈建议',
@@ -646,7 +646,7 @@
                 'subscription-cta-button': 'Subscribe for Updates & Exclusive Tips',
                  
                 // Footer
-                'footer-copyright': '© 2025 Chat Memo by Eze. All rights reserved.',
+                'footer-copyright': '© Chat Memo by Eze. All rights reserved.',
                 'footer-chrome': 'Chrome Extension',
                 'footer-guide': 'User Guide',
                 'footer-feedback': 'Feedback',
@@ -732,9 +732,9 @@
                 console.error('Failed to load footer:', error);
                 // 如果加载失败，显示简化版footer
                 const currentLang = localStorage.getItem('chat-memo-lang') || 'zh-CN';
-                const copyrightText = currentLang === 'en' ? 
-                    '&copy; 2025 Chat Memo by Eze. All rights reserved.' : 
-                    '&copy; 2025 Chat Memo by 一泽Eze. All rights reserved.';
+                const copyrightText = currentLang === 'en' ?
+                    '&copy; Chat Memo by Eze. All rights reserved.' :
+                    '&copy; Chat Memo by 一泽Eze. All rights reserved.';
                 document.getElementById('footer-container').innerHTML = `
                     <footer class="bg-white border-t border-gray-100">
                         <div class="container mx-auto px-6 py-8 text-center">
