@@ -15,7 +15,7 @@ description: Chat Memo 浏览器插件与官网的发版文案单源扇出。Use
 
 1. 确认官网与插件位于同一产品家族目录：`website/`、`browser-extension/`。
 2. 插件版本必须以 Chrome 商店实际生产版本或其已核验 tag 为基线，不得默认把远端 `main` 当生产。
-3. 官网生产源以 GitHub Pages 的 `main` 根目录为准；Cloudflare 只承担 DNS/代理/CDN 时，不得写成 Cloudflare Pages 部署。
+3. 官网生产源以 Cloudflare Pages 项目连接的 `main` 根目录为准；其他分支和 Pull Request 只生成 Preview，不得当成生产完成。
 4. 全量发版前，插件变更已经写入 `CHANGELOG.md` 的 `[Unreleased]`，最终用户文案已经确认。
 5. 如果文案尚未确认，只创建 entry 或执行 `--dry-run`，不得实际写入。
 6. 遇到不明 dirty worktree，先盘点并保留，不覆盖、不顺手清理。
@@ -108,7 +108,7 @@ python3 .agent/skills/chatmemo-update/scripts/generate_files.py \
 ## 技术事实与陷阱
 
 - Chrome 商店生产版本与远端默认分支可能不同；必须先核验生产包/tag。
-- 官网由 GitHub Pages 从 `main` 根目录发布时，Cloudflare 代理状态不等于 Cloudflare Pages。
+- 官网由 Cloudflare Pages 从 `main` 根目录发布；看到 Preview 成功不等于生产域名已经更新，仍须核验 Production 部署与线上页面。
 - 产品家族的历史宣传源文件归 `../assets/brand-and-marketing/`；官网实际引用的部署资源继续留在官网仓。
 - 当前模板自带 `logo-single.png` 作为生成依赖；这不自动把它升级为品牌唯一权威源。
 - 一次性改生成物只影响当次；可复用的视觉或文案偏好应修改模板。

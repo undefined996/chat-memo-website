@@ -57,10 +57,10 @@
 
 ## 生产部署
 
-- GitHub Pages 从 `main` 分支根目录直接发布，无构建步骤。
-- 自定义域名由根目录 `CNAME` 声明为 `chatmemo.ai`。
-- Cloudflare 只代理域名与 CDN；它不是本项目的 Pages 构建来源。
-- 本地目录移动不会影响线上。只有推送 `main`、修改 Pages source、`CNAME` 或 DNS 才会改变生产。
+- Cloudflare Pages 连接 `eze-is/chat-memo-website`，从 `main` 分支根目录直接发布，无构建步骤。
+- `main` 是 Production 分支；其他分支和 Pull Request 只生成 Preview 部署。
+- `chatmemo.ai` 与 `www.chatmemo.ai` 的生产域名归 Cloudflare Pages 项目配置所有，仓库不再保留 GitHub Pages 的 `CNAME` 声明。
+- 本地目录移动不会影响线上。只有推送 `main`、修改 Cloudflare Pages 项目、自定义域名或 DNS 才会改变生产。
 
 ### 部署注意事项
 

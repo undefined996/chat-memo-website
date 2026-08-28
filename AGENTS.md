@@ -5,9 +5,9 @@ Chat Memo 产品家族的公开官网，生产地址 `https://chatmemo.ai`。
 ## 生产事实
 
 - Git 仓库：`eze-is/chat-memo-website`
-- 部署：GitHub Pages，从 `main` 分支根目录发布
-- `CNAME`、页面 HTML、`updates-data.json` 与 `resource/` 是线上部署资产
-- Cloudflare 只代理域名与 CDN，不拥有本仓的构建或发布事实
+- 部署：Cloudflare Pages，从 `main` 分支根目录发布
+- 页面 HTML、`updates-data.json` 与 `resource/` 是线上部署资产
+- `chatmemo.ai` 与 `www.chatmemo.ai` 由 Cloudflare Pages 项目的自定义域名配置拥有；GitHub Pages 已退役
 
 ## 入口
 
