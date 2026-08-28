@@ -55,48 +55,12 @@
    ```
 3. 在浏览器中访问 `http://localhost:8000`
 
-## 部署到 Cloudflare Pages
+## 生产部署
 
-### 方法一：通过 Git 仓库部署（推荐）
-
-1. **准备 Git 仓库**
-   - 在 GitHub/GitLab 创建新仓库
-   - 将项目代码推送到仓库
-
-2. **连接 Cloudflare Pages**
-   - 登录 [Cloudflare Dashboard](https://dash.cloudflare.com/)
-   - 进入 "Pages" 部分
-   - 点击 "Create a project"
-   - 选择 "Connect to Git"
-
-3. **配置项目**
-   - 选择你的 Git 仓库
-   - 设置构建配置：
-     - Framework preset: `None`
-     - Build command: 留空
-     - Build output directory: `/`
-     - Root directory: `/`
-
-4. **部署**
-   - 点击 "Save and Deploy"
-   - 等待部署完成
-
-### 方法二：直接上传文件
-
-1. **准备文件**
-   - 确保所有文件都在项目根目录
-   - 检查文件路径引用是否正确
-
-2. **上传到 Cloudflare Pages**
-   - 登录 Cloudflare Dashboard
-   - 进入 "Pages" 部分
-   - 点击 "Create a project"
-   - 选择 "Upload assets"
-   - 拖拽整个项目文件夹或选择文件上传
-
-3. **配置域名**
-   - 部署完成后会获得一个 `.pages.dev` 域名
-   - 可以在设置中添加自定义域名
+- GitHub Pages 从 `main` 分支根目录直接发布，无构建步骤。
+- 自定义域名由根目录 `CNAME` 声明为 `chatmemo.ai`。
+- Cloudflare 只代理域名与 CDN；它不是本项目的 Pages 构建来源。
+- 本地目录移动不会影响线上。只有推送 `main`、修改 Pages source、`CNAME` 或 DNS 才会改变生产。
 
 ### 部署注意事项
 
@@ -104,12 +68,6 @@
 - ✅ 使用相对路径，确保在任何域名下都能正常访问
 - ✅ 视频文件已优化，支持自动播放和循环
 - ✅ 图片已压缩，加载速度优化
-
-### 自定义域名设置
-
-1. 在 Cloudflare Pages 项目设置中添加自定义域名
-2. 根据提示配置 DNS 记录
-3. 等待 SSL 证书自动配置完成
 
 ## 性能优化建议
 
